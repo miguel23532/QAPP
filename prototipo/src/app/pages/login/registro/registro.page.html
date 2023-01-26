@@ -1,0 +1,62 @@
+<ion-alert-controller></ion-alert-controller>
+<ion-content [fullscreen]="true"  class="background">
+  <ion-grid class="parent">
+
+    <ion-row class="div0">
+      <ion-item color="white" class="itemSelector"> <!--Cuadro de texto para el código del alumno-->
+        <ion-label class="info" position="floating">Nombre</ion-label>
+        <ion-input class="info" id="nombreRegistro" [(ngModel)]="nombreRegistro" placeholder="Ingresa tu nombre"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="div1">
+      <ion-item color="white" class="itemSelector"> <!--Cuadro de texto para el código del alumno-->
+        <ion-label class="info" position="floating">Código</ion-label>
+        <ion-input class="info" id="codigoRegistro" [(ngModel)]="codigoRegistro" placeholder="Ingresa tu código"></ion-input>
+      </ion-item>
+    </ion-row>
+    
+    <ion-row class="div2">
+      <ion-item color="black" class="itemSelector"> <!--Cuadro de texto para el código del alumno-->
+        <ion-label class="info" position="floating">Correo</ion-label>
+        <ion-input class="info" id="correoRegistro" [(ngModel)]="correoRegistro" placeholder="Ingresa un correo electronico"></ion-input>
+      </ion-item>
+    </ion-row> 
+
+    <ion-row class="div3">
+      <ion-item color="black" class="itemSelector"> <!--Cuadro de texto para el código del alumno-->
+        <ion-label class="info" position="floating">Contraseña</ion-label>
+        <ion-input class="info" id="passRegistro" [(ngModel)]="passRegistro" placeholder="Ingresa tu contraseña" type="password"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="div4">
+      <ion-item color="favorite" class="itemSelector">
+        <ion-select class="selector" interface="popover" placeholder="Carrera" id="carreraRegistro" [(ngModel)]="carreraRegistro">
+          <ion-select-option value="INCO" class="selectorOpcion">INCO</ion-select-option>
+          <ion-select-option value="INNI" class="selectorOpcion">INNI</ion-select-option>
+          <ion-select-option value="INDU" class="selectorOpcion">INDU</ion-select-option>
+          <ion-select-option value="FIS" class="selectorOpcion">FIS</ion-select-option>
+          <ion-select-option value="MEL" class="selectorOpcion">MEL</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="div5">
+      <div class="btnRegistro" (click)="registrar()">
+        REGISTRAR 
+      </div>
+    </ion-row>
+
+    <ion-row class="div6">
+      <div class="btnRegresar" (click)="regresar()">
+        CANCELAR
+      </div>
+    </ion-row>
+    
+    
+  </ion-grid>
+
+  
+
+</ion-content>

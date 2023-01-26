@@ -1,0 +1,21 @@
+<ion-content class="background" (click)="nextpage('/login')" [scrollY]="false">
+
+  <!--ion-title (click)="nextpage('/pruebas')" class="ion-text-center" mode="md" size="large"> My Navigation CUCEI </!--ion-title-->
+  <img class="imagenTitle" src="assets/icon/CuceiQapp.svg">
+  
+  <ion-slides pager="false" [options]="{ autoplay:true, speed: 5000}" class="slides">
+    <ion-slide>
+      <h1 class = "text">Tu herramienta para una buena experiencia estudiantil.</h1>
+    </ion-slide>
+
+    <ion-slide>
+      <h1 class = "text">Crea tu horario y conoce como llegar a tus aulas dentro del centro universitario.</h1>
+    </ion-slide>
+
+    <ion-slide>
+      <h1 class = "text">Conoce y evalúa profesores para tu aprendizaje.</h1>
+    </ion-slide>
+  </ion-slides>
+  <h1 class = "next">Toca para continuar...</h1><!--ajustar en celular-->
+
+</ion-content>

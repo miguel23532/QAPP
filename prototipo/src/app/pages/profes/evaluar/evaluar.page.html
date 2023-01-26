@@ -1,0 +1,77 @@
+
+<ion-content class="background" [scrollY]="false">
+    
+    <!-- ION  SLIDE MENU -->
+  
+    <ion-menu contentId="main-contentEvaluar" >
+        <ion-header>
+          <ion-toolbar color="tertiary" id="nombreUsuarioMenuEvaluar" style="text-align: center;">
+            
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuEvaluar" ></div>
+          <ion-button (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
+          <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
+        </ion-content> 
+    </ion-menu>
+
+    <div (click)="openMenu()" class="containerBtnMenu">
+        <ion-button slot="start" class="btnMenu" >
+            <ion-menu-button id="main-contentEvaluar"></ion-menu-button>
+          
+        </ion-button>
+    </div>
+      
+    <!-- ION MENU -->
+
+    <div fixed class="usuario" id="nombreUsuarioEvaluar"></div>
+
+    <div fixed class="nombreProfeEvaluar" id="nombreProfeEvaluar"></div>
+
+    <ion-grid fixed class="contenedorCalif">
+        <ion-row  class="filaCalif">
+            <ion-col class="textoCalif" size="12">¿Existe flexibilidad dentro del curso?</ion-col>
+        </ion-row>
+
+        <ion-row #flexibilidad class="filaCalif">
+            <ion-col class="contenedorEvaluacion" size="12"> <ion-range id="flexibilidadEvaluar" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="false" [snaps]="true"></ion-range></ion-col>
+        </ion-row> 
+
+        <ion-row class="filaCalif">
+            <ion-col class="textoCalif" size="12">¿Es puntual y asiste con regularidad a clases?</ion-col>
+        </ion-row>
+
+        <ion-row #puntualidad class="filaCalif">
+            <ion-col class="contenedorEvaluacion"  size="12"> <ion-range id="puntualidadEvaluar" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="false" [snaps]="true"></ion-range></ion-col>
+        </ion-row>
+
+        <ion-row  class="filaCalif">
+            <ion-col class="textoCalif" size="12">¿Recomendarías cursar con este profesor?</ion-col>
+        </ion-row > 
+
+        <ion-row #recomendado class="filaCalif">
+            <ion-col class="contenedorEvaluacion"  size="12"> <ion-range id="recomendadoEvaluar" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="false" [snaps]="true"></ion-range></ion-col>
+        </ion-row>
+
+        <ion-row  class="filaCalif">
+            <ion-col class="textoCalif" size="12">¿Puedo seguir con facilidad el ritmo de su clase?</ion-col>
+        </ion-row> 
+
+        <ion-row #facilidad class="filaCalif">
+            <ion-col class="contenedorEvaluacion" size="12"> <ion-range id="facilidadEvaluar" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="false" [snaps]="true"></ion-range></ion-col>
+        </ion-row>
+
+        <ion-row class="filaCalif">
+            <ion-col class="textoCalif" size="12">¿Muestra interés por el progreso del alumno?</ion-col>
+        </ion-row>
+
+        <ion-row #interes class="filaCalif">
+            <ion-col class="contenedorEvaluacion" size="12"> <ion-range id="interesEvaluar" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="false" [snaps]="true"></ion-range></ion-col>
+        </ion-row>
+    </ion-grid> 
+
+    <div (click)="evaluarProfe()" class="btnEvaluar" >EVALUAR</div>
+  
+</ion-content>
+ 

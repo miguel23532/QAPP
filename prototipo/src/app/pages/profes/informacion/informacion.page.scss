@@ -1,0 +1,246 @@
+.background{
+    --background: url(../../../../assets/icon/Informacion_background.png) 0 0/100% 100% no-repeat;
+}
+
+
+ion-menu::part(backdrop) {
+    background-color: rgb(0, 174, 255);
+}
+  
+ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+    --max-width: 180px;
+    box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
+}
+
+.containerBtnMenu{
+    position: absolute;
+        top: 3%;
+        right: 3%;
+}
+
+ion-button {
+    --background: rgba(255, 0, 255, 0);
+    --background-hover: rgba(255, 0, 255, 0);
+    --background-activated: rgba(255, 0, 255, 0);
+    --background-focused: rgba(255, 0, 255, 0);
+  
+    --color: rgb(118, 34, 0);
+  
+    --border-radius: 0;
+    --border-color: rgba(255, 0, 255, 0);
+    --border-style: solid;
+    --border-width: 1px;
+  
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+  
+    --ripple-color: deeppink;
+  
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
+
+.btnMenu{
+    position: absolute;
+        top: 3%;
+        right: 3%;
+    width: 40px;
+    height: 40px;
+    color: antiquewhite;
+}
+
+.usuario{
+    color: antiquewhite;
+    font-size: 80%;
+    position: absolute;
+        top: 5%;
+        left: 13%;
+    width: 68%; 
+}
+
+.nombreProfeInformacion{
+    color: antiquewhite;
+    font-size: calc(2vw + 2vh);
+    font-weight: bolder;
+    position: absolute;
+        top: 13%;
+        left: 36%;
+    width: 60%; 
+    height: 20%;
+}
+
+.califText{
+    color: white;
+    font-size: calc(1.5vw + 1.5vh);
+    font-weight: bold;
+    position: absolute;
+        top: 26%;
+        left: 2%;
+    width: 35%; 
+    height: 10%; 
+} 
+
+.textoCalif{
+    color: white;
+    font-size: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contenedorCalif{
+    position: absolute;
+        top: 30%;
+        left: -2%;
+    width: 100%;
+    height: 80%;
+}
+
+.filaCalif{
+    margin-bottom: 5%;
+}
+
+.contenedorEvaluacion{
+    align-self: center;
+    max-height: 1%;
+}
+
+.barra{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.clasesContainer {
+    position: absolute;
+    top: 80%;
+    width: 93%;
+    height: 20%;
+    left: 2.5%;
+}
+
+.textSlide {
+    color: #f6e7d8;
+    font-size: medium;
+    align-self: baseline;
+}
+
+.materiasSlide{
+    right: 1.8%;
+    width: 95%;
+    height: 70%;
+    border-radius: 30px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 5px;
+    border-left: 5px;
+    border-style: inset;    
+}
+
+.materiasText{
+    color: white;
+    font-size: calc(2vw + 2vh);
+    font-weight: bold;
+    position: absolute;
+        top: 75%;
+        left: 15%;
+    width: 70%; 
+    height: 10%;
+}
+
+.slide{
+    background-color: transparent;
+    border-color: #9266cc;
+    border-style: double;
+    top: 50%;
+    height: 80%;  
+    border-radius: 20px;
+    position: relative; 
+    left:23%;
+    transform: translate(0,-50%);    
+}
+
+.textNombreMateria{
+    position: absolute;
+    right: 7.5%;
+    text-align: center;
+    top: 3%;
+    color: aliceblue;
+    width: 150% !important;
+    max-height: 100%; 
+    font-size: 48px;
+    /* 100 = viewport width, as 1vw = 1/100th of that
+       So if the container is 50% of viewport (as here)
+       then factor that into how you want it to size.
+       Let's say you like 5vw if it were the whole width,
+       then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
+    */
+    font-size: 1.05vh;
+}
+ 
+.textClaveMateria{
+    position: absolute;
+    top: 70%;
+    right: -17%;
+    color: aliceblue;
+    font-size: 1.15vh;
+}
+
+.textCreditosMateria{
+    position: absolute;
+    top: 70%;
+    color: aliceblue;
+    font-size: 1.15vh;
+    text-align: left;
+} 
+
+.medalla{
+    position: absolute;
+    background:url(../../../../assets/icon/bronze.png) 0 0/100% 100% no-repeat;
+    top: 13%;
+    left: 2%;
+    height: 70px;
+    width: 90px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.fondoMedallaProfesor{
+    position: absolute;
+    background:url(../../../../assets/icon/blueLight.gif) 0 0/100% 100% no-repeat;
+    top: 13%;
+    left: 2%;
+    height: 70px;
+    width: 90px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.botonEvaluar{
+    position: absolute;
+    background: url(../../../../assets/icon/evaluar.png) 0 0/100% 100% no-repeat;
+    width: 50px; 
+    height: 50px;    
+    top: 66%;
+    right: 7%;
+}
+
+.noEvaluacion{
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    display: none;
+    top: 50%;
+}
+
+.textoEvaluaciones{
+    position: absolute;
+    top: 70%;
+    left: 2%;
+    font-size: small;
+    color: white;
+}

@@ -1,0 +1,57 @@
+
+<ion-content class="background" [scrollY]="false">
+
+  <ion-menu contentId="main-content" >
+    <ion-header>
+      <ion-toolbar color="tertiary" id="nombreUsuarioMenuMateria" style="text-align: center;">
+        
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuMateria" ></div>
+      <ion-button (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
+      <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
+    </ion-content> 
+  </ion-menu>
+
+<div (click)="openMenu()" id="main-content" class="containerBtnMenu">
+  
+  <ion-button slot="start" class="btnMenu" >
+    <ion-menu-button></ion-menu-button>
+    
+  </ion-button>
+  
+</div>
+
+  <div fixed class="usuario">
+    <div id="nombreUsuarioMateria"></div>
+  </div> 
+
+  <div class="textMateria"> {{claveMateria}}: {{materia}}</div>
+
+  <div class="textClases"> Clases de la materia </div>
+  
+  <div class="container"> 
+      <ion-list *ngFor="let clase of clases; index as ix" class="tarjeta">
+        <div (click)="irProfe(ix)">
+          <div class="textoClase" [innerText]="clase.nombreProfe"></div>
+          <div class="textoClase" [innerText]="clase.nrc"></div>
+            <ion-slides class="horariosContainer" pager="false" [options]="{ autoplay:true, speed: 2000,  slidesPerView: 2, spaceBetween: 20, centerInsufficientSlides: true }">
+              <ion-slide class="horariosTarjeta" *ngFor="let horario of clase.horarios; index as ix2">
+                <div class="horario" [innerText]="horario.dia+horario.hora"></div>
+              </ion-slide> 
+            </ion-slides> 
+        </div>
+      </ion-list> 
+  </div>   
+  
+
+  <!---
+  <div class="container">
+    <ion-list>   
+      <ion-item *ngFor="let clase of clases"> {{clase.nrc}} </ion-item>  
+    </ion-list>  
+  
+  </div>
+  --->
+</ion-content>

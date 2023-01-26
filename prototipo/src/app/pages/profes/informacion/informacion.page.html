@@ -1,0 +1,109 @@
+<ion-content class="background" [scrollY]="false">
+
+  <!-- ION  SLIDE MENU -->
+  
+
+  <ion-menu contentId="main-contentInformacion" >
+    <ion-header>
+      <ion-toolbar color="tertiary" id="nombreUsuarioMenuInformacion" style="text-align: center;">
+        
+      </ion-toolbar>
+    </ion-header> 
+    <ion-content class="ion-padding">
+      <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuInformacion" ></div>
+      <ion-button (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
+      <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
+    </ion-content> 
+  </ion-menu>
+
+  <div (click)="openMenu()" id="main-contentInformacion"  class="containerBtnMenu">
+    
+    <ion-button slot="start" class="btnMenu" >
+     <ion-menu-button> </ion-menu-button>
+      
+    </ion-button>
+    
+  </div>
+
+  <!-- ION MENU -->
+
+  
+    
+    <div fixed class="usuario" id="nombreUsuarioInformacion"></div>
+
+    <div fixed class="fondoMedallaProfesor" id="fondoMedallaProfesor"> </div>
+
+    <div fixed class="medalla" id="medallaProfesor" [ngStyle]="{'background-image': 'url(' + imageName + ')'}"> </div>
+
+    <div fixed class="nombreProfeInformacion" id="nombreProfeInformacion"></div>
+
+    <div class="botonEvaluar" onClick="evaluar()"></div>  
+
+    <div fixed class="califText">Clasificación</div>
+
+    <div id="noEvaluacion" class="noEvaluacion">NO HAY EVALUACIONES</div>
+  
+    <ion-grid fixed id="gridEvaluacion" class="contenedorCalif">
+
+      
+
+        <ion-row #flexibilidad class="filaCalif">
+            <ion-col class="textoCalif" size="5">Flexibilidad</ion-col>
+            <ion-col class="contenedorEvaluacion" size="7"> <div id="flexibilidad" class="barra" style="color: transparent">|</div></ion-col>
+        </ion-row>
+
+        <ion-row #puntualidad class="filaCalif">
+            <ion-col class="textoCalif" size="5">Puntualidad</ion-col>
+            <ion-col class="contenedorEvaluacion"  size="7"> <div id="puntualidad" class="barra" style="color: transparent">|</div></ion-col>
+        </ion-row>
+
+        <ion-row #recomendado class="filaCalif">
+            <ion-col class="textoCalif" size="5">Recomendado</ion-col>
+            <ion-col class="contenedorEvaluacion"  size="7"> <div id="recomendado" class="barra" style="color: transparent">|</div></ion-col>
+        </ion-row > 
+ 
+        <ion-row #facilidad class="filaCalif">
+            <ion-col class="textoCalif" size="5">Facilidad</ion-col>
+            <ion-col class="contenedorEvaluacion" size="7"> <div id="facilidad" class="barra" style="color: transparent">|</div> </ion-col>
+        </ion-row> 
+
+        <ion-row #interes class="filaCalif">
+            <ion-col class="textoCalif" size="5">Interés</ion-col>
+            <ion-col class="contenedorEvaluacion" size="7"> <div id="interes" class="barra" style="color: transparent">|</div></ion-col>
+        </ion-row>
+
+    </ion-grid>   
+    
+    <div class="textoEvaluaciones">Evaluaciones: {{evaluaciones}}</div>
+
+    <div class="botonEvaluar" (click)="evaluarProfe()"></div>
+
+    <div fixed class="materiasText">Materias que imparte</div>
+
+    <div class="clasesContainer">
+        <ion-slides id="fichas" centeredSlides="true" class="materiasSlide" pager="false" [options]="slideOpts"  (ionSlideTap)="irMateria($event)">
+          <ion-slide *ngFor="let materia of materias; index as ix" class="slide"> 
+            <ion-grid >
+              <!--Informacion de la materia--> 
+              <!--Nombre de la materia-->
+              <ion-row >
+                <ion-col size="1"></ion-col>
+                <ion-col  class="textNombreMateria" id="nombre" [innerText]="materia.nombre" size="10"> </ion-col>
+                <ion-col size="1"></ion-col>
+              </ion-row>
+              <!--Clave de la materia-->
+              <ion-row >            
+                <ion-col size="1" ></ion-col>
+                <ion-col class="textClaveMateria" id="clave" [innerText]="'Clave: '+materia.clave" size="10"> </ion-col>
+                <ion-col size="1"></ion-col>
+              </ion-row>
+              <!--Creditos de la materia-->
+              <ion-row >
+                <ion-col class="textCreditosMateria" id="edificio" [innerText]="'Creditos: '+materia.creditos" size="12"> </ion-col>
+              </ion-row>
+            </ion-grid>              
+          </ion-slide>
+        </ion-slides> 
+    </div>
+
+</ion-content>

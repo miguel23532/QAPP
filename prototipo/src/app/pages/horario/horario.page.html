@@ -1,0 +1,183 @@
+<ion-content class="background" >
+
+
+  <!-- ION  SLIDE MENU -->
+  <ion-menu contentId="main-contentHorario" >
+    <ion-header>
+      <ion-toolbar color="tertiary" id="nombreUsuarioMenuHorario" style="text-align: center;">
+        
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuHorario" ></div>
+
+      <ion-textarea id="textareaNRC" [readonly]="true" rows="10"  style="position: absolute; top:20%; width: 150px; height: 300px; left: 0px" placeholder="Tus clases aquí" [(ngModel)]="listaNrc" [autoGrow]="false" ></ion-textarea>
+
+      <ion-button class="btnMenu" (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
+      <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
+    </ion-content> 
+  </ion-menu>
+
+  <div id="main-contentHorario" class="containerBtnMenu">
+    
+    <ion-button slot="start" class="btnMenu" >
+      <ion-menu-button></ion-menu-button>
+      
+    </ion-button>
+    
+  </div>
+  <!-- ION MENU -->
+
+
+  <div fixed class="usuario">
+    <div id="nombreUsuarioHorario" ></div>
+  </div>
+
+  <ion-content class="calendario_container" [scrollX]="true">
+    <ion-slides id="horarioMatricula" class="calendario_slides" [options]="{ slidesPerView:5, speed: 500, spaceBetween: 0, slidesPerGroup: 2, slidesPerColumn: 1}">  
+
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="border-color: transparent !important;"></ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">07:00<br>08:55</ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">09:00<br>10:55</ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">11:00<br>12:55</ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">13:00<br>14:55</ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">15:00<br>16:55</ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">17:00<br>18:55</ion-col>
+          <ion-col size="12" class="cuadriculaSchedule">19:00<br>20:55</ion-col>
+        </ion-row>
+      </ion-slide>
+      
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="font-size: 22.5px !important;">L</ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col> 
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+        </ion-row>
+      </ion-slide>
+
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="font-size: 22.5px !important;">M</ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+        </ion-row>
+      </ion-slide>
+
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="font-size: 22.5px !important;">I</ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+        </ion-row>
+      </ion-slide>
+
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="font-size: 22.5px !important;">J</ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+        </ion-row>
+      </ion-slide>
+
+
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="font-size: 22.5px !important;">V</ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+        </ion-row>
+      </ion-slide>
+
+      <ion-slide class="containerColumna">
+        <ion-row class="columna">
+          <ion-col size="12" class="cuadriculaSchedule" style="font-size: 22.5px !important;">S</ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+          <ion-col size="12" class="cuadricula"><div class="part1"></div> <div class="part2"></div> <div class="part3"></div> <div class="part4"></div></ion-col>
+        </ion-row>
+      </ion-slide>
+
+    </ion-slides> 
+  </ion-content><!--cILINDIRI :P-->
+  
+
+  <div class="toolbarContainer"> 
+      <ion-input class="buscador" [(ngModel)]="busquedaHorario" id="busquedaHorario" placeholder="  Ingresa la clave de la materia"></ion-input>
+        <ion-button (click)="agregar()" class="buttonToolbarA">
+          Añadir 
+        </ion-button>
+        <ion-button (click)="guardarHorario()" class="buttonToolbarG">Guardar</ion-button>
+  </div>
+
+  <ion-slides id="materiasHorario" class="materias_container" [options]="{  freeMode: false, slidesPerView:2, speed: 500, spaceBetween: 0, slidesPerGroup: 1, slidesPerColumn: 1  }" [scrollY]="true" (ionSlideDidChange)="this.comprobarClases()"> 
+   
+    <ion-slide *ngFor="let m of materias; index as ixM"  class="containerColumnaMaterias" [scrollY]="true">
+      
+      <ion-grid class="materiasGrid" >
+          <ion-col class="columnaMaterias" size="12">
+            <ion-row class="cuadriculaTituloMateria" > 
+              <div [innerText]="m.nombre" class="tituloMateria">Materia</div>
+            </ion-row>
+
+            <!--Precaucion pendejes programando-->
+            <ion-row *ngFor="let clase of m.clases; index as ixC" class="cuadriculaMaterias" (click)="seleccionarClase(ixM, ixC)">
+              <div class="textoMaterias" [innerText]="clase.nombreProfe">clase</div>
+              <div class="textoMaterias" [innerText]="clase.nrc">clase</div>
+
+              <div class="horariosTarjeta" >
+                <div *ngFor="let horario of clase.horarios; index as ix2" class="horariosContainer"> 
+                  <div class="horarioDia" [innerText]="horario.dia" > </div>
+                  <div class="horarioHora" [innerText]="horario.horaInicio+'-'+horario.horaTermino" ></div>
+                </div>
+              </div>
+              
+              <!-- <ion-slides class="horariosContainer" pager="false" [options]="{ autoplay:false, speed: 500,  slidesPerView: 2 }">
+                <ion-slide class="horariosTarjeta" *ngFor="let horario of clase.horarios; index as ix2">
+                  <div class="horario" [innerText]="horario.dia+' '+horario.horaInicio+'-'+horario.horaTermino "></div>
+                </ion-slide>
+              </ion-slides>  -->
+              
+              <div class="colorMaterias"> a</div> 
+              <!--Precaucion pendejes programando-->
+              
+            </ion-row>
+            
+            <div (click)="borrarColumna(ixM)" class="cuadriculaMateriasBtn" >ELIMINAR</div>
+          </ion-col>
+      </ion-grid>
+      
+    </ion-slide>
+</ion-slides>
+  
+</ion-content>

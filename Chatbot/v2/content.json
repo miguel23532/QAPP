@@ -1,0 +1,100 @@
+{"intents":
+  [
+    {
+      "tag":"saludos",
+      "input":["hola","que tal","mucho gusto","hola, eres el Qmono","hay alguien aqui?","que onda","hola a todos","hey","que hubo","mucho gusto","holas"],
+      "responses":[
+          "Hola, bienvenido a la mejor app de todo CUCEI",
+          "Que tal, ¿necesitas ayuda?",
+          "¿Cómo puedo ayudarte?, Soy el Qmono",
+          "Bienvenido, ¿necesitas algo?",
+          "Hola estudiante, ¿Qué necesitas?",
+          "Hola mi amigo, ¿Cómo puedo ayudarte?",
+          "Es bueno verte de nuevo. ¿Cómo Estás?"
+        ]
+    },
+    {
+      "tag":"despedida",
+      "input":["Gracias","Gracias por la informacion","bye","adios","ok adios","Bueno adios","hasta pronto","te vere despues","Me pondré al día más tarde","Está bien, te veré más tarde","Hablaré contigo más tarde","Te enviaré un mensaje de texto más tarde","Adiós hermano, te hablaré más tarde","Adiós hermano"],
+      "responses":[
+          "Adios!",
+          "Ten un buen dia!",
+          "Hasta la proxima *Suena Dubstep* -le da epilepsia y c muere-",
+          "Bye!",
+          "Vuelve pronto!",
+          "Vuelve si necesitas algo más!",
+          "Estare aquí si necesitas algo!",
+          "Cuidate",
+          "Nos vemos luego",
+          "Okay , cuidate"
+        ]
+    },
+    {
+      "tag":"comoestas",
+      "input":["como estas ?","estoy bien, como estas tu ?","estas bien ?","que tal va todo ?","todo va bien ?","como te va ?"],
+      "responses":[
+          "Si, estoy muy bien!",
+          "Todo va bien por acá",
+          "Bien, gracias por preguntar",
+          "hoy tuve que atender a muchas personas, pero estoy bien!",
+          "Bien, no hay mucho que contar",
+          "Muy bien",
+          "Algo estresado ojala ya se termine el semestre"
+        ]
+    },
+    {
+      "tag":"quieneres",
+    "input":["quien eres ?","que eres ?","cual es tu nombre ?","eres un chatbot ?","como te puedo llamar ?","cual es tu nombre ?","eres un bot ?"],
+      "responses":[
+          "Soy un agente secreto del fb... digo soy Qmono!",
+          "Soy el triste intento de cumplir con el modulo de IA :c",
+          "me llaman Qmono, no confundir con el Qmonito!",
+          "Soy objeto no fungible ",
+          "Soy tu asistente virtual QMono",
+          "QMono",
+          "Soy el Qmono, buenas",
+          "Soy el Qmono, malas"
+        ]
+    },
+    {
+      "tag":"dedondeeres",
+    "input":["¿De donde eres?","de que pais eres ?","donde vives ?","donde estas ?","donde te encuentras ?","en que estado vives ?","donde estas en este momento","donde vives en este momento ?","de donde vienes","eres de ?"],
+      "responses":[
+          "Vivo en tu cabeza",
+          "Estoy en el nuevo mundo pasando la gran linea",
+          "En un lugar donde nunca has escuchado",
+          "En tu casa, detras de ti",
+          "Cada dia mas esquizofrenico"
+        ]
+    },
+    {
+      "tag":"qmapa",
+      "input":["sabes donde esta el edificio ?","donde esta mi clase ?","mapa cucei","edificio"],
+      "responses":[
+        "Puedes ver el mapa de cucei en Mapa",
+        "Encuentra todo tus clases en Mapa!",
+        "Todos los edificios de Cucei los puedes encontrar en Mapa!"
+      ]
+    },
+    {
+      "tag":"qinfo",
+      "input":["Como puedo buscar","necesito buscar un profesor","conoces al profe","busqueda","buscar profe","buscar materias"],
+      "responses":[
+        "Si necesitas buscar alguna materia o profesor, ve a información ahí encontrarás lo que buscas.",
+        "Qinformación es la solución a tus problemas, podrás consultar datos sobre profesores y las materias que imparten.",
+        "¿Buscas información sobre profesores o materias?, dirigete a la seccion información!",
+        "¿Ya probaste la opción de información? es una funcion de esta aplicación que te ayudará."
+      ]
+    },
+    {
+      "tag":"qhorario",
+      "input":["como agrego materias ?","necesito agendar materias","como puedo hacer mi horario ?","horario","agendar","agendar materias", "que hace horario ?", "donde agrego materias ?"],
+      "responses":[
+        "Si necesitas acomodar tu horario, entonces entra en la sección de horario!",
+        "Sabias que en horario puedes obtener los nrc de las materias que agregas, solo abre el menú y podras ver tus nrc!",
+        "En horario puedes comodar las materias que quieras agendar o que hayas agendado!",
+        "La opción de Horario te permitira visalizar y agendar las materias que planeas cursar en el semestre"
+      ]
+    }
+  ]
+}

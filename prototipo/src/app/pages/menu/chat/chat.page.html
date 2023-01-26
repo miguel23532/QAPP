@@ -1,0 +1,35 @@
+
+
+<ion-content class="background">
+  <ion-back-button class="backBtn" icon="arrow-undo" defaultHref="menu" ></ion-back-button>
+  <ion-back-button class="colorBtn" icon="arrow-undo" (click)="changeBackgroundColor()"></ion-back-button>
+
+  <ion-list id="mensajesChat" class="mensajes">
+    <div *ngFor="let msj of messages" >
+      <div class="containerMsjQmono">
+        <ion-img src={{msj.img}} class="imgQmono" *ngIf="msj.nombre=='Qmono'"></ion-img>
+        <div class="mensajeQmono" *ngIf="msj.nombre=='Qmono'" >  {{ msj.mensaje }} </div>
+      </div>
+
+      <div class="containerMsjTu">
+        <ion-img src={{msj.img}} class="imgTu" *ngIf="msj.nombre=='TU'" > </ion-img>
+        <div class="mensajeEstudiante" *ngIf="msj.nombre=='TU'" >   {{ msj.mensaje }} </div>
+      </div>
+      
+      
+    </div>
+  </ion-list> 
+
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input placeholder="Escribe un mensaje..." [(ngModel)]="msj"></ion-input>
+      <ion-button id="btnEnviar" (click)="sendMessage()" slot="end">Enviar</ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- falta poner imagen de fondo y boton de regresar -->

@@ -1,0 +1,70 @@
+<ion-content class="background" [scrollY]="false">
+  <!-- ION  SLIDE MENU -->
+  <ion-menu contentId="main-contentMap" >
+    <ion-header>
+      <ion-toolbar color="tertiary" id="nombreUsuarioMenuMapa" style="text-align: center;">
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuMapa" ></div>
+      <ion-button (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
+      <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
+    </ion-content> 
+  </ion-menu>
+
+
+  <div id="main-contentMap" class="containerBtnMenu">
+    
+    <ion-button slot="start" class="btnMenu" >
+      <ion-menu-button></ion-menu-button>
+      
+    </ion-button>
+    
+  </div>
+  <!-- ION MENU -->
+  <div class="usuario" id="nombreUsuarioMapa"></div>
+
+  <!--Declaracion del mapa-->
+  <div (ionFocus)="enfocarBusqueda()" class="mapa" id="map" (click)="desefoncarBusqueda()"></div>
+
+  <!--Barra de busqueda para el mapa-->
+  <div class="buscador">
+    <ion-input [(ngModel)]="busqueda" id="busqueda" type="search" placeholder="Busqueda" value="" (ionChange)="buscar()" (ionBlur)="desefoncarBusqueda()" ></ion-input>
+  </div>
+
+  <!--Tarjetas con la informacion de las materias del alumno-->
+  <div class="clasesContainer">
+    <ion-slides id="fichas" #fichas class="clases" pager="false" [options]="slideOpts" (ionSlideTransitionEnd)="mostrarAula(ix)">
+      <ion-slide *ngFor="let clase of clases; index as ix" > 
+        <ion-grid >
+          <!--Informacion de las clases del alumno--> 
+          <!--Nombre de la clase-->
+          <ion-row >
+            <ion-col size="1"></ion-col>
+            <ion-col  class="text" id="nombre" [innerText]="clase.nombre" size="10"> </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <!--Horario de la clase-->
+          <ion-row >            
+            <ion-col size="1" ></ion-col>
+            <ion-col class="text2" id="horario" [innerText]="'Horario: '+clase.horario" size="10"> </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <!--Edificio de la clase Aula/Salon/Laboratorio de la clase-->
+          <ion-row >
+            <ion-col class="text2" id="edificio" [innerText]="'Edificio: '+clase.edificio" size="7"> </ion-col>
+            <ion-col class="text2" id="aula" [innerText]="'Aula: '+clase.aula" size="4"> </ion-col>
+            <ion-col class="text" [innerText]=" " size="1"> </ion-col>
+          </ion-row>    
+          <!--Flechas de la ficha  data-bind="visible: clase.flechaAtras {{if(clase.flechaAdelante){ocultarFlechaAt(ix)}}} "-->
+          <ion-row>            
+            <ion-col size="1" id="flechaAt{{$index-1}}" class="flechaAtras" [innerText]="clase.flechaAtras"></ion-col>
+            <ion-col size="1" id="flechaAd{{$index-1}}" class="flechaAdelante" [innerText]="clase.flechaAdelante" ></ion-col>
+          </ion-row>      
+
+        </ion-grid> 
+         
+      </ion-slide>
+    </ion-slides> 
+  </div>
+</ion-content>

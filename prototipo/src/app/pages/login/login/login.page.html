@@ -1,0 +1,53 @@
+
+
+<ion-content class="parent" [scrollY]="false">
+ 
+  <ion-grid class="div1">
+    <ion-title class="ion-text-center" mode="md" size="large"> Login </ion-title>
+  </ion-grid>
+
+  <!--Texto ayuda que aparece cuando se presiona el botón ayuda-->
+  <div class="div2" id="ayuda">
+    <ion-text color="medium">
+      AYUDA.
+    </ion-text><br>
+    <ion-text class="textAyuda">Introduce código y contraseña para ingresar a tu cuenta.</ion-text>
+  </div>
+
+  <ion-row class="div3"><!--Cuadros de texto para el Login del alumno-->
+    <ion-item color="black"> <!--Cuadro de texto para el código del alumno-->
+      <ion-label class="info" position="floating">Código del alumno</ion-label>
+      <ion-input class="info" id="codigoLogin" [(ngModel)]="codigoLogin" placeholder="Ingresa tu codigo..."></ion-input>
+    </ion-item>
+  </ion-row>
+  <ion-row class="div4">
+    <ion-item color="black"> <!--Cuadro de texto para la contraseña del alumno-->
+      <ion-label class="info" position="floating">NIP</ion-label>
+      <ion-input class="info" id="passLogin" [(ngModel)]="passLogin" placeholder="Ingresa tu contraseña..." type="password"></ion-input>
+    </ion-item> 
+  </ion-row>
+
+  <!--Botón login-->
+  <ion-row class="div5">
+    <ion-col  >
+      <div (click)="login()" class="card" (pointerenter)="overlogin($event)" (pointerleave)="outlogin($event)">
+        <img [src]="loginimg[selectedCardIndexlogin].img" />
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!--Botón registro-->
+  <ion-row class="div6">
+    <ion-col >
+      <div (click)="nextpage('/registro')" class="card" (pointerenter)="overreg($event)" (pointerleave)="outreg($event)">
+        <img [src]="regimg[selectedCardIndexreg].img" />
+      </div>
+    </ion-col>
+  </ion-row>
+   
+  <!--Botón ayuda-->
+  <div class="div7">
+    <ion-button id="help" (click)="hideHelp()" class="ayudaBtn" fill="clear"></ion-button>
+  </div>
+  
+</ion-content>

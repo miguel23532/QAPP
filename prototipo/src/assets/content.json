@@ -1,0 +1,92 @@
+{"intents":
+  [
+    {
+      "tag":"saludos",
+      "input":["hola","que tal","mucho gusto","hola, eres el Qmono","hay alguien aqui?","que onda","hola a todos","hey","que hubo","mucho gusto","holas"],
+      "responses":[
+          "Hola, bienvenido a la mejor app de todo CUCEI",
+          "Que tal, ¿necesitas ayuda?",
+          "¿Cómo puedo ayudarte?, Soy el Qmono",
+          "Bienvenido, ¿necesitas algo?",
+          "Hola estudiante, ¿Qué necesitas?",
+          "Hola mi amigo, ¿Cómo puedo ayudarte?",
+          "Es bueno verte de nuevo. ¿Cómo Estás?"
+        ]
+    },
+    {
+      "tag":"despedida",
+      "input":["Gracias","gracias","Gracias por la informacion","adiós","bye","adios","ok adios","Bueno adios","hasta pronto","te vere despues","Me pondré al día más tarde","Está bien, te veré más tarde","Hablaré contigo más tarde","Te enviaré un mensaje de texto más tarde","Adiós hermano, te hablaré más tarde","Adiós hermano"],
+      "responses":[
+          "Adios!",
+          "Ten un buen dia!",
+          "Hasta la proxima *Suena Dubstep* -le da epilepsia y c muere-",
+          "Bye!",
+          "Vuelve pronto!",
+          "Vuelve si necesitas algo más!",
+          "Estare aquí si necesitas algo!",
+          "Cuidate",
+          "Nos vemos luego",
+          "Okay , cuidate"
+        ]
+    },
+    {
+      "tag":"comoestas",
+      "input":["como estas ?","estoy bien, como estas tu ?","estas bien ?","que tal va todo ?","todo va bien ?","como te va ?"],
+      "responses":[
+          "Si, estoy muy bien!",
+          "Todo va bien por acá",
+          "Bien, gracias por preguntar",
+          "hoy tuve que atender a muchas personas, pero estoy bien!",
+          "Bien, no hay mucho que contar",
+          "Muy bien",
+          "Algo estresado ojala ya se termine el semestre"
+        ]
+    },
+    {
+      "tag":"quieneres",
+    "input":["quien eres ?","que eres ?","cual es tu nombre ?","eres un chatbot ?","como te puedo llamar ?","cual es tu nombre ?","eres un bot ?"],
+      "responses":[
+          "Soy un agente secreto del fb... digo soy Qmono!",
+          "Soy el triste intento de cumplir con el modulo de IA :c",
+          "me llaman Qmono, no confundir con el Qmonito!",
+          "Soy objeto no fungible ",
+          "Soy tu asistente virtual QMono",
+          "NO",
+          "Soy el Qmono, buenas",
+          "Soy el Qmono, malas"
+        ]
+    },
+    {
+      "tag":"dedondeeres",
+    "input":["¿De donde eres?","de que pais eres ?","donde vives ?","donde estas ?","donde te encuentras ?","en que estado vives ?","donde estas en este momento","donde vives en este momento ?","de donde vienes","eres de ?"],
+      "responses":[
+          "Vivo en tu cabeza",
+          "Estoy en el nuevo mundo pasando la gran linea",
+          "En un lugar donde nunca has escuchado",
+          "En tu casa, detras de ti",
+          "Cada dia mas esquizofrenico",
+          "Que le valga vrg compa, ahorita echo un radiazo a la plaza, puro JGL",
+          "Ruego al tiempo aquel momento, en que mi mundo se paraba... en tus labios, solo para revivir y derretirme una bvez mas mas mimrando tus ojos negros, tengo ganas de ser aire y me respires para siempre, pues no tengo nada que perder, todo el tiempo estoy pensadnpo en ti, en el brillo del sol, en un rincon del cielo, todo el tiempo estoy pensando en ti, en el eco del mar que retumba en tus ojos, te soñé"
+        ]
+    },
+    {
+      "tag":"dondeestaedificio",
+      "input":["sabes donde esta el edificio ?","donde esta mi clase ?","mapa cucei","edificio"],
+      "responses":[
+        "Puedes ver el mapa de cucei en Qmapa",
+        "Encuentra todo tus clases en Qmapa!",
+        "Todos los edificios de Cucei los puedes encontrar en Qmapa!"
+      ]
+    },
+    {
+      "tag":"comobuscar",
+      "input":["Como puedo buscar","necesito buscar un profesor","conoces al profe","busqueda","buscar profe","buscar materias"],
+      "responses":[
+        "Si necesitas buscar alguna materia o profesor, ve a Qinfo ahí encontrarás lo que buscas.",
+        "Qinformación es la solución a tus problemas, podrás consultar datos sobre profesores y las materias que imparten.",
+        "¿Buscas informacion sobre profesores o materias?, dirigete a la seccion Qinfo!",
+        "¿Ya probaste Qinformación? es una funcion de esta aplicación que te ayudará."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+<ion-content class="background" [scrollY]="false">
+
+  <div (click)="cerrar()" class="btnSalir">SALIR</div>
+  
+  <div fixed class="usuario">
+    <div id="nombreUsuario"></div>
+  </div>
+
+  <div  class="mensaje">¡Bienvenido a QAPP!</div>
+
+  <div (click)="mapa()">
+    <div class="titleQmap">Mapa</div>
+    <div class="textQmap">¡Encuentra el mejor camino hacia tus clases!</div>
+    <img class="imagenQmapa" src="assets/icon/Qmapa_icon.svg">
+  </div>
+
+  <div (click)="profes()">
+      <div class="titleQprofes">Información</div>
+      <div class="textQprofes">¡Elije, evalúa y obten la mejor información!</div>
+      <img class="imagenQprofe" src="assets/icon/Qprofe_icon.svg" alt="">
+  </div>
+ 
+  <div (click)="horario()"> 
+    <div class="titleQhorario">Horario</div>
+    <div class="textQhorario">¡El mejor horario es el que se adecúa a ti!</div>   
+    <img class="imagenQhorario" src="assets/icon/Qhorario_icon.svg" alt="">
+  </div> 
+
+  <div class="btnAyuda" (click)="chat()">
+    <div class="touchMeBtn"> 
+      <img class="imagenAyudaGlobo" src="assets/icon/bubble.png" alt="">
+      <div style="position: absolute; top: 3%; left: 10%; transform: rotate(-7deg);"> 
+        Ayuda?
+      </div>
+    </div>
+    <img class="imagenAyuda" src="assets/icon/Qmono.png" alt="">
+  </div>
+ 
+</ion-content>

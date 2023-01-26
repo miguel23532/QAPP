@@ -1,0 +1,39 @@
+Variables
+grafoCucei										//Grafo del cucei
+listaDijkstra = []								//Nodos definitivos (camino minimo)
+listaAuxAristas = [(arista, pesoAcumulado),]	//Lista para eliminar aristas de la lista de aristas
+listaAristas = []								//Aristas a evaluar en cada iteracion
+aristaAux= arista								//Arista a evaluar
+nodoOrigen= nodo								//Inicio del camino
+nodoDestino= nodo								//Fin del camino
+nodoAux = nodoOrigen							//Nodo a evaluar
+listaDijkstra = (nodoAux, 0)					//Inicializacion de la lista con el nodo origen
+pesoAcumulado = 0								//Peso acumulado del camino
+
+mientras que el ultimo elemento de listaDijkstra no sea igual a nodoDestino hacer:								//Hacer hasta hacer definitivo el nodo destino
+	//añadir aristas de listaDijkstra en su último nodo a listaAuxAristas + pesoAcumulado
+	foreach arista in nodoAux.aristas																			//Recorrer la lista de aristas del ultimo nodo agregado
+		listaAristas.push((arista, listraDijkstra.search(nodoAux)[1]))															//Objeto Arista y peso acumulado hasta el momento
+	aristaAux = listaAristas en su primer elemento de la lista 													//Inicializar la primer arista a evaluar
+	
+	//limpiar lista																								
+	por cada arista en listaAristas hacer																		//Recorrer la lista de aristas que se van a evaluar
+		foreach nodoDefinitivo en listaDijkstra																	//Recorrer la lista de los nodos definitivos
+				if arista.destino != nodoDefinitivo[0]															//Si la arista tiene como destino un nodo diferente a alguno de la lista definitiva
+					//if !(listaAuxAristas.search(arista))														
+						listaAuxAristas.push(arista)
+
+	listaAristas = listaAuxAristas																				//Actualizar la lista de aristas con la auxiliar
+
+	//obtener arista de menor peso
+	por cada arista en listaAristas hacer																		//Recorrer la lista de aristas
+		si (arista[0].peso+ arista[1]) es menor a (aristaAux[0].peso+ aristaAux[1]) entonces					//Encontrar las arista de menor peso acumulado de la iteracion
+			aristaAux = arista
+		
+	listaAuxArista = []																							//Limpiar la lista auxiliar de aristas
+	nodoAux  = aristaAux.destino
+	listraDijkstra añadir (nodoAux, (aristaAux[0].peso+ aristaAux[1]))											//Agregar el nodo elegido junto al peso acumulado acttual de la iteracion
+	
+
+	
+aristaAux = listaDijkstra[0][0]
