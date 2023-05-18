@@ -21,7 +21,7 @@ async def botStart():
   print("dentro de botStart")
   try:
     print("connect")
-    await sio.connect('http://187.201.119.74:3001')
+    await sio.connect('http://*IP SERVIDOR*:3001')
     print("emit")
     await sio.emit('connection', {'foo': 'bar'})
   except:
