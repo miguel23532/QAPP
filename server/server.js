@@ -38,7 +38,7 @@ io.sockets.on('connection', function(socket){
       console.log("Login: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+user);
-      socket.emit(user, req.responseText);
+      socket.emit(user+"login", req.responseText);
       
     });
 
@@ -61,7 +61,7 @@ io.sockets.on('connection', function(socket){
       console.log("registrar: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigo);
-      socket.emit(codigo, req.responseText);
+      socket.emit(codigo+"registrar", req.responseText);
     });
     req.socket = socket;
     req.user = codigo;
@@ -90,7 +90,7 @@ io.sockets.on('connection', function(socket){
       console.log("evaluarProfe: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+ evaluacion.codigoEstudiante);
-      socket.emit(evaluacion.codigoEstudiante, req.responseText);
+      socket.emit(evaluacion.codigoEstudiante+"evaluarProfe", req.responseText);
     });
     req.socket = socket;
     req.user = evaluacion.codigoEstudiante;
@@ -114,7 +114,7 @@ io.sockets.on('connection', function(socket){
       console.log("obtenerEvaluacionProfe: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigoEstudiante);
-      socket.emit(codigoEstudiante, req.responseText);
+      socket.emit(codigoEstudiante+"obtenerEvaluacionProfe", req.responseText);
     });
     req.socket = socket;
     req.user = codigoEstudiante;
@@ -131,7 +131,7 @@ io.sockets.on('connection', function(socket){
         console.log("getProfes: OBTENIDO DE myslq:");
         console.log(req.responseText);
         console.log("Enviando a: "+codigo);
-        socket.emit(codigo, req.responseText);
+        socket.emit(codigo+"getProfes", req.responseText);
       });
       req.socket = socket;
       req.user = codigo;
@@ -161,7 +161,7 @@ io.sockets.on('connection', function(socket){
       console.log("getHorario: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigoEstudiante);
-      socket.emit(codigoEstudiante, req.responseText);
+      socket.emit(codigoEstudiante+"getHorario", req.responseText);
     });
     req.socket = socket;
     req.user = codigoEstudiante;
@@ -178,7 +178,7 @@ io.sockets.on('connection', function(socket){
       console.log("getDatosProfe: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigoEstudiante);
-      socket.emit(codigoEstudiante, req.responseText);
+      socket.emit(codigoEstudiante+"getDatosProfe", req.responseText);
     });
     req.socket = socket;
     req.user = codigoEstudiante;
@@ -193,7 +193,7 @@ io.sockets.on('connection', function(socket){
       console.log("getPromedioProfe: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigoEstudiante);
-      socket.emit(codigoEstudiante, req.responseText);
+      socket.emit(codigoEstudiante+"getPromedioProfe", req.responseText);
     });
     req.socket = socket;
     req.user = codigoEstudiante;
@@ -224,7 +224,7 @@ io.sockets.on('connection', function(socket){
       console.log("setHorarioAlumno: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigo);
-      socket.emit(codigo, req.responseText);
+      socket.emit(codigo+"setHorarioAlumno", req.responseText);
     });
     req.socket = socket;
     req.user = codigo;
@@ -239,7 +239,7 @@ io.sockets.on('connection', function(socket){
       console.log("getHorarioAlumno: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigo);
-      socket.emit(codigo, req.responseText);
+      socket.emit(codigo+"getHorarioAlumno", req.responseText);
     });
     req.socket = socket;
     req.user = codigo;
@@ -254,7 +254,7 @@ io.sockets.on('connection', function(socket){
       console.log("borrarHorario: OBTENIDO DE myslq:");
       console.log(req.responseText);
       console.log("Enviando a: "+codigo);
-      socket.emit(codigo, req.responseText);
+      socket.emit(codigo+"borrarHorario", req.responseText);
     });
     req.socket = socket;
     req.user = codigo;
@@ -273,7 +273,7 @@ io.sockets.on('connection', function(socket){
   //-----------------------------------------------------------------------------------
   socket.on('respuesta', function(datos) {
     console.log("respuesta para " + datos[0]);
-    io.emit('mensaje'+datos[0], datos[1])
+    io.emit('mensaje'+datos[0], datos)
   });
 });
 

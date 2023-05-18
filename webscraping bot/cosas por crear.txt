@@ -1,0 +1,4 @@
+ingresar datos a buscar y buscar
+moverse en la oferta
+obtener datos
+crear json con datos para la DB
