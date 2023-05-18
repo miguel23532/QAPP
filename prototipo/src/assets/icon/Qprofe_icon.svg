@@ -7,7 +7,7 @@
    viewBox="0 0 209.48523 202.39502"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    sodipodi:docname="Qprofe_icon.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,20 +24,22 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:snap-nodes="false"
-     inkscape:zoom="0.5587463"
-     inkscape:cx="-196.86931"
-     inkscape:cy="500.22703"
-     inkscape:window-width="2560"
-     inkscape:window-height="1346"
+     inkscape:zoom="1.1174926"
+     inkscape:cx="338.7047"
+     inkscape:cy="408.95125"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer4"
      showguides="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <linearGradient
@@ -65,12 +67,14 @@
      sodipodi:insensitive="true"
      transform="translate(1.5603714,-47.487988)">
     <ellipse
-       style="display:inline;fill:#fffb42;fill-opacity:1;stroke:#d5ad08;stroke-width:0.928123;stroke-miterlimit:3.8;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:#ff8d3c;fill-opacity:1;stroke:#d5ad08;stroke-width:0.928123;stroke-miterlimit:3.8;stroke-dasharray:none;stroke-opacity:1"
        id="path859"
        cx="106.0723"
        cy="148.6855"
        rx="101.3885"
-       ry="100.73345" />
+       ry="100.73345"
+       inkscape:label="path859"
+       sodipodi:insensitive="true" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -198,7 +202,7 @@
      sodipodi:insensitive="true"
      transform="translate(1.5603714,-47.487988)">
     <path
-       style="fill:#f10000;fill-opacity:1;stroke:#b61f1f;stroke-width:0.464061;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.464061;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 25.173629,137.59147 6.215406,7.57499 3.88461,-1.45674 -9.031723,-13.49903 -4.273077,1.84518 z"
        id="path4920" />
     <g
@@ -206,24 +210,24 @@
        transform="matrix(2.3203066,0,0,2.3203066,-101.56199,-191.87262)">
       <text
          xml:space="preserve"
-         style="font-weight:bold;font-stretch:condensed;font-size:4.23333px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial Bold Condensed';word-spacing:-0.902229px;baseline-shift:baseline;fill:#f10000;fill-opacity:1;stroke-width:0.264583"
+         style="font-weight:bold;font-stretch:condensed;font-size:4.23333px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial Bold Condensed';word-spacing:-0.902229px;baseline-shift:baseline;fill:#000000;fill-opacity:1;stroke-width:0.264583"
          x="54.452789"
          y="138.58046"
          id="text11521"><tspan
            sodipodi:role="line"
            id="tspan11519"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Bobcat;-inkscape-font-specification:'Bobcat, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;baseline-shift:baseline;fill:#f10000;fill-opacity:1;stroke-width:0.264583"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Bobcat;-inkscape-font-specification:'Bobcat, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;baseline-shift:baseline;fill:#000000;fill-opacity:1;stroke-width:0.264583"
            x="54.452789"
            y="138.58046">E = MC</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:'Bradley Hand ITC';-inkscape-font-specification:'Bradley Hand ITC Bold';display:inline;fill:#f10000;fill-opacity:1;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:'Bradley Hand ITC';-inkscape-font-specification:'Bradley Hand ITC Bold';display:inline;fill:#000000;fill-opacity:1;stroke-width:0.264583"
          x="66.442612"
          y="137.12138"
          id="text54458"><tspan
            sodipodi:role="line"
            id="tspan54456"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:65%;font-family:'Bradley Hand ITC';-inkscape-font-specification:'Bradley Hand ITC Bold';baseline-shift:super;fill:#f10000;fill-opacity:1;stroke-width:0.264583"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:65%;font-family:'Bradley Hand ITC';-inkscape-font-specification:'Bradley Hand ITC Bold';baseline-shift:super;fill:#000000;fill-opacity:1;stroke-width:0.264583"
            x="66.442612"
            y="137.12138">2</tspan></text>
     </g>

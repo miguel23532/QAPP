@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="Qhorario_icon.svg"
-   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,20 +24,22 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.55874629"
-     inkscape:cx="84.11689"
-     inkscape:cy="373.15684"
-     inkscape:window-width="2560"
-     inkscape:window-height="1346"
+     inkscape:cx="85.01175"
+     inkscape:cy="372.26198"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer7"
      units="in"
      width="7.5in"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2" />
   <g
@@ -46,7 +48,7 @@
      inkscape:label="fondo"
      style="display:inline;opacity:1">
     <ellipse
-       style="fill:#7ed17b;fill-opacity:1;stroke:#108e00;stroke-width:0.848761;stroke-miterlimit:3.8;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#325eae;fill-opacity:1;stroke:#108e00;stroke-width:0.848761;stroke-miterlimit:3.8;stroke-dasharray:none;stroke-opacity:1"
        id="path859"
        cx="93.143318"
        cy="92.544281"
@@ -688,13 +690,13 @@
        r="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.7232px;line-height:1.25;font-family:Bastion;-inkscape-font-specification:'Bastion, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#d90303;fill-opacity:1;stroke:none;stroke-width:0.36808"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.7232px;line-height:1.25;font-family:Bastion;-inkscape-font-specification:'Bastion, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.36808"
        x="67.675148"
        y="72.334"
        id="text3233"><tspan
          sodipodi:role="line"
          id="tspan3231"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.7232px;font-family:Bastion;-inkscape-font-specification:'Bastion, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#d90303;fill-opacity:1;stroke-width:0.36808"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.7232px;font-family:Bastion;-inkscape-font-specification:'Bastion, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.36808"
          x="67.675148"
          y="72.334">Horario</tspan></text>
     <text
