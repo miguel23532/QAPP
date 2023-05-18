@@ -28,6 +28,8 @@ export class MateriaPage implements OnInit {
   claveMateria:string;
   clases: Array<clase>;
 
+  
+
   constructor(private servicio: ApiserviceService,private route: Router, public menuCtrl: MenuController,private socket: Socket) { 
     this.materia = "";
     this.claveMateria = "";
@@ -39,6 +41,8 @@ export class MateriaPage implements OnInit {
     
     
   } 
+
+  
 
   ionViewWillEnter(){
     this.asignarMateria();

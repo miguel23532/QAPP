@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from './../../../servicios/apiservice.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -24,7 +24,9 @@ export class RegistroPage implements OnInit {
   
   
 
-  constructor(private route: Router,private servicio: ApiserviceService, public alertController: AlertController) { }
+  constructor(private route: Router,private servicio: ApiserviceService, public alertController: AlertController, private platform: Platform) {
+
+  }
 
   ngOnInit() {
 
@@ -60,7 +62,7 @@ export class RegistroPage implements OnInit {
     await alert.present();
   }
 
-  async faltaAlert(){
+  async faltaAlert(mensaje){
     let campos = [this.nombreRegistro,this.codigoRegistro,this.correoRegistro,this.passRegistro,this.carreraRegistro];
     let camposNombre = ["\nnombre","\ncodigo","\ncorreo","\npassword","\ncarrera"];
     let camposMalos =[];
@@ -78,7 +80,7 @@ export class RegistroPage implements OnInit {
 
     const alert = await this.alertController.create({
       header: 'AVISO',
-      message: 'Favor de revisar los siguientes campos:'+camposMalos.toString()+'.',
+      message: 'Favor de revisar los siguientes campos:'+camposMalos.toString()+'' + mensaje,
       buttons: ['OK']
     }); 
 
@@ -113,9 +115,12 @@ export class RegistroPage implements OnInit {
   registrar(){
     this.camposValidos = true;
     this.nombreRegex = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,60}$/;
+    //sin numeros ni caracteres especiales
     this.correoRegex = /^[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
     this.codigoRegex = /^[0-9]{5,10}$/
     this.passRegex = /^.{4,20}$/
+    //cuatro a veinte caracteres
+    var mensaje = ".";
 
     //validar campos
     //Falta cambiar de color campos que esten erroneos
@@ -124,12 +129,14 @@ export class RegistroPage implements OnInit {
       this.camposValidos = false;
       this.nombreRegistro="";
       //maximo de caracteres 
+      mensaje = ", Aviso: el nombre no puede tener numeros ni caracteres especiales.";
     }
 
     if(!this.codigoRegex.test(this.codigoRegistro)){
       this.camposValidos = false;
       this.codigoRegistro="";
       //maximo de caracteres y solo numeros
+      
     }
 
     if(!this.correoRegex.test(this.correoRegistro)){
@@ -145,6 +152,7 @@ export class RegistroPage implements OnInit {
       this.camposValidos = false;
       this.passRegistro="";
       //minimo de caracteres y mayuscula, numero y especial.
+      mensaje = ", Aviso: La contaseña debe tener de cuatro a veinte caracteres.";
     }
 
     if(!this.carreraRegistro){
@@ -156,7 +164,7 @@ export class RegistroPage implements OnInit {
       console.log("camposValidos");
       let socket = this.servicio.registrar( this.codigoRegistro,this.correoRegistro,this.carreraRegistro,this.passRegistro,this.nombreRegistro);
 
-      socket.once(this.codigoRegistro, (respuesta) => {
+      socket.once(this.codigoRegistro+"registrar", (respuesta) => {
         console.log("señal escuchada");
         console.log(respuesta);
         if(respuesta == 0){
@@ -216,7 +224,7 @@ export class RegistroPage implements OnInit {
       //avisar que algunos campos no son validos
       console.log("Faltan campos");
       
-      this.faltaAlert()
+      this.faltaAlert(mensaje)
     }
 
   }//Registrar

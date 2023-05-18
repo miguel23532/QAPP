@@ -66,7 +66,7 @@ export class ApiserviceService {
   obtenerEvaluacionProfe(codigoEstudiante,codigoProfe){ 
     this.socket.emit('obtenerEvaluacionProfe', {codigoEstudiante,codigoProfe});
 
-    this.socket.once(this.codigo, (respuesta) => {
+    this.socket.once(this.codigo+"obtenerEvaluacionProfe", (respuesta) => {
       console.log(respuesta);
       return respuesta;
     });

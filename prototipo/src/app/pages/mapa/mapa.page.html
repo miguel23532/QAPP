@@ -6,7 +6,9 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuMapa" ></div>
+      <img src="../../../assets/icon/logoCucei.png" alt="" style="position: absolute; left: 25%; top:5%; width: 90px; height: 90px;">
+      <img src="../../../assets/icon/qmono 3d.gif" alt="" *ngIf="busqueda == 'Qmono3d'" style="position: absolute; left: 0%; top:35%; width: 200px; height: 150px; background-color: red;">
+      <div style="position: absolute; text-align: center; font-size: 4.5vh; color: transparent;" id="codigoUsuarioMenuMapa" ></div>
       <ion-button (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
       <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
     </ion-content> 
@@ -25,16 +27,86 @@
   <div class="usuario" id="nombreUsuarioMapa"></div>
 
   <!--Declaracion del mapa-->
-  <div (ionFocus)="enfocarBusqueda()" class="mapa" id="map" (click)="desefoncarBusqueda()"></div>
+  <div (ionFocus)="desefoncarBusqueda()" class="mapa" id="map" (click)="desefoncarBusqueda()"></div>
 
   <!--Barra de busqueda para el mapa-->
-  <div class="buscador">
-    <ion-input [(ngModel)]="busqueda" id="busqueda" type="search" placeholder="Busqueda" value="" (ionChange)="buscar()" (ionBlur)="desefoncarBusqueda()" ></ion-input>
+  <div class="buscador" (click)="enfocarBusqueda()">
+    <ion-input [(ngModel)]="busqueda" id="busqueda" type="search" placeholder="Búsqueda" value="" (ionChange)="buscar()" (ionBlur)="desefoncarBusqueda()" (click)="enfocarBusqueda()" ></ion-input>
   </div>
+
+  <!-- Cuadro con checks pa
+   <ion-fab>
+    <ion-fab-button class="mainfabbutton" size="small">
+      <ion-icon name="chevron-down-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom" id="my-fab-list">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> -->
+
+
+  <ion-accordion-group class="puntosMapa">
+    <ion-accordion value="first" toggleIcon="caret-down-circle">
+      <ion-item slot="header" class="item-background-color">
+        <ion-label style="color:black">Ver</ion-label>
+        
+      </ion-item>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox0" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Baños</div>
+        <img src="../../../assets/icon/Baños.png" class="puntoMapaIconos">
+      </div>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox1" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Edificios</div>
+        <img src="../../../assets/icon/Edificio.png" class="puntoMapaIconos">
+      </div>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox2" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Auditorios</div>
+        <img src="../../../assets/icon/Auditorio.png" class="puntoMapaIconos">
+      </div>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox3" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Tiendas</div>
+        <img src="../../../assets/icon/Tienda.png" class="puntoMapaIconos">
+      </div>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox4" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Comida</div>
+        <img src="../../../assets/icon/Comida.png" class="puntoMapaIconos">
+      </div>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox5" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Bancas</div>
+        <img src="../../../assets/icon/Banca.png" class="puntoMapaIconos">
+      </div>
+      <div slot="content" class="containerPuntoMapa">
+        <ion-checkbox [(ngModel)]="checkbox6" class="puntoMapaCheckBox" slot="start" (click)="buscar()"></ion-checkbox>
+        <div class="puntoMapaNombre">Entradas</div>
+        <img src="../../../assets/icon/Entrada.png" class="puntoMapaIconos">
+      </div>
+      
+    </ion-accordion>
+  </ion-accordion-group>
 
   <!--Tarjetas con la informacion de las materias del alumno-->
   <div class="clasesContainer">
-    <ion-slides id="fichas" #fichas class="clases" pager="false" [options]="slideOpts" (ionSlideTransitionEnd)="mostrarAula(ix)">
+    <ion-slides id="fichas" #fichas class="clases" pager="false" [options]="slideOpts" (ionSlideTransitionEnd)="brendaEsOnline()">
       <ion-slide *ngFor="let clase of clases; index as ix" > 
         <ion-grid >
           <!--Informacion de las clases del alumno--> 

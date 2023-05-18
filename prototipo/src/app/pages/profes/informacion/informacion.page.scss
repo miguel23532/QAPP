@@ -25,7 +25,7 @@ ion-button {
     --background-activated: rgba(255, 0, 255, 0);
     --background-focused: rgba(255, 0, 255, 0);
   
-    --color: rgb(118, 34, 0);
+    --color: #f98a3b;
   
     --border-radius: 0;
     --border-color: rgba(255, 0, 255, 0);
@@ -126,15 +126,9 @@ ion-button {
 }
 
 .materiasSlide{
-    right: 1.8%;
-    width: 95%;
+    width: 100%;
     height: 70%;
-    border-radius: 30px;
-    border-top: 0px;
-    border-bottom: 0px;
-    border-right: 5px;
-    border-left: 5px;
-    border-style: inset;    
+      
 }
 
 .materiasText{
@@ -150,7 +144,7 @@ ion-button {
 
 .slide{
     background-color: transparent;
-    border-color: #9266cc;
+    border-color: #ff8d3c;
     border-style: double;
     top: 50%;
     height: 80%;  

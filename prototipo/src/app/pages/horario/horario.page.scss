@@ -1,7 +1,9 @@
 .background{
+    height: 100%;
+    width: 100%; 
+    position: absolute;
     --background: url(../../../assets/icon/Horario_background.png) 0 0/100% 100% no-repeat;
     background-color: transparent;
-    height: calc(100vh)
 }
 
 ion-menu::part(backdrop) {
@@ -41,16 +43,24 @@ ion-menu::part(container) {
     // --padding-bottom: 10px;
   //}
 
-.btnMenu{
-    position: absolute;
-        top: 3%;
-        right: 3%;
-    width: 40px;
-    height: 40px;
-    color: antiquewhite;
+  ion-textarea .textareaNRC::-webkit-scrollbar {
+    display: none;
+  }
+
+.textareaNRC{
+    position: absolute; 
+    text-align: center; 
+    top:25%; 
+    width: 100%; 
+    height: 300px; 
+    left: 0px;
+    --overflow: hidden;
+    overflow: hidden;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
- 
-.calendario_container{
+.calendario_container{ 
     position: absolute;
     top: 12%;
     left: 2.5%;
@@ -122,11 +132,10 @@ ion-menu::part(container) {
 
 .cuadricula{
     position: relative; 
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.725);
     border: 2px;
     border-style: outset;
-    border-color: rgb(107, 86, 28);
-    border-radius: 5px;
+    border-color:transparent; 
     font-size: 10px;
     height: 35px;
     color: black;
@@ -202,12 +211,19 @@ ion-menu::part(container) {
 
 .btnMenu{
 
+    position: absolute;
+        top: 3%;
+        right: 3%;
+    width: 40px;
+    height: 40px;
+    color: antiquewhite;
+
     --background: rgba(255, 0, 255, 0);
     --background-hover: rgba(255, 0, 255, 0);
     --background-activated: rgba(255, 0, 255, 0);
     --background-focused: rgba(255, 0, 255, 0);
     
-    --color: rgb(118, 34, 0);
+    --color: #3880ff;
     
     --border-radius: 0;
     --border-color: rgba(255, 0, 255, 0);
@@ -319,7 +335,7 @@ ion-menu::part(container) {
 .cuadriculaMaterias{
     background-color:  white;
     //width: 120px;
-    width: 100%;
+    width: 90%;
     //height: 80px;
     height: 100%;
     border-width: 1px;
@@ -338,13 +354,22 @@ ion-menu::part(container) {
 }
 
 .textoMaterias{
-    margin-top: 5%;
-    font-size: 1.2vh;
-    height: 15%;
+    margin-top: 7%;
+    font-size: 1.1vh; 
+    height: 29%;
     width: 90%;
     text-align: left;
     color: black;
+    padding-bottom: 5%;
+}
 
+.textoMateriasNRC{
+    font-size: 1.1vh; 
+    height: 10%;
+    width: 90%;
+    text-align: left;
+    color: black;
+    padding-bottom: 5%;
 }
 
 .tituloMateria{
@@ -367,7 +392,7 @@ ion-menu::part(container) {
     top: -20%;
     left: 0%;
     height: 40%;
-    width: 80%;
+    width: 100%;
     background-color: transparent;
     color: black;
     border: groove;
@@ -377,22 +402,23 @@ ion-menu::part(container) {
 
 .colorMaterias{
     background-color: transparent;
-    width: 15%;
-    height: max-content;
+    width: 20%;
+    height: 13vh;
     border-radius: 15px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-color: black;
     border-bottom-color: black;
     border-right-color: black;
-
-    top: -45%;
-    left: 3%;
+    
+    top: -80%;
+    left: 10%;
     position: relative;
 }
 
 .horarioDia{
     //text-align: left;
+    margin-top: 3%;
     color: black;
     font-size: 1.2vh;
     width: 100%;
@@ -401,9 +427,9 @@ ion-menu::part(container) {
 }
 
 .horarioHora{
-    //text-align: left;
+    margin-top: 5%;
     color: black;
-    font-size: 1.2vh;
+    font-size: 1.0vh;
     width: 100%;
     flex: 1;
     background-color: transparent;
@@ -420,7 +446,7 @@ ion-menu::part(container) {
 
 .horariosTarjeta{
     position: relative;
-    top: -28%;
+    top: -0%;
     left: 0%;
     height: 40%;
     width: 80%;
@@ -449,3 +475,12 @@ ion-menu::part(container) {
     justify-content: center;
     align-items: center;
 }
+
+.keyboard-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 20px;
+  }

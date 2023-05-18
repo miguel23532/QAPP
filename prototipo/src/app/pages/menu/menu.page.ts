@@ -3,6 +3,7 @@ import { ApiserviceService } from './../../servicios/apiservice.service';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -13,14 +14,18 @@ export class MenuPage implements OnInit {
   nombreUsuario:string;
   constructor(private route: Router, private servicio: ApiserviceService,private platform: Platform) {
     this.platform.backButton.subscribeWithPriority(10, () => {
-      
+      this.route.navigate(['/menu']);
     });
   }
  
   ngOnInit() {
-    
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.route.navigate(['/menu']);
+    });
     this.asignarNombre();
   }
+
+  
 
   
 

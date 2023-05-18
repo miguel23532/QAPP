@@ -8,7 +8,12 @@ import { HorarioPageRoutingModule } from './horario-routing.module';
 
 import { HorarioPage } from './horario.page';
 
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+
 @NgModule({
+  providers: [
+    Keyboard
+  ],
   imports: [
     CommonModule,
     FormsModule,

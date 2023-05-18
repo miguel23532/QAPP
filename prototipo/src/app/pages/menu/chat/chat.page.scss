@@ -38,14 +38,20 @@
 .mensajes{
     background-color: transparent;
     position: absolute;
-    top: 20%;
-    height: 77%;
+    top: 12.5%;
+    height: 85%;
     width: 90%;
     left: 5%;
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .mensajeQmono{
@@ -62,6 +68,21 @@
     animation: popup-fadein2 1s;
     overflow-y: auto;
     color: black;
+}
+
+.buttonIrA{
+    word-wrap: break-word;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent;
+    width: 100%;
+    font-size: 2.5vh;
+    text-align: center;
+    animation: popup-fadein2 1s;
+    overflow-y: auto;
+    text-decoration: underline;
+    color: #0000FF;
 }
 
 .containerMsjQmono{

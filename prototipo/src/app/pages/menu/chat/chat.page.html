@@ -1,24 +1,27 @@
 
 
 <ion-content class="background">
-  <ion-back-button class="backBtn" icon="arrow-undo" defaultHref="menu" ></ion-back-button>
+  <ion-back-button class="backBtn" icon="arrow-undo" defaultHref="menu" text=""></ion-back-button>
   <ion-back-button class="colorBtn" icon="arrow-undo" (click)="changeBackgroundColor()"></ion-back-button>
 
-  <ion-list id="mensajesChat" class="mensajes">
-    <div *ngFor="let msj of messages" >
+  <ion-content id="mensajesChat" class="mensajes" [scrollX]="true">
+    <div *ngFor="let msj of messages" style >
+      <br>
       <div class="containerMsjQmono">
+        
         <ion-img src={{msj.img}} class="imgQmono" *ngIf="msj.nombre=='Qmono'"></ion-img>
-        <div class="mensajeQmono" *ngIf="msj.nombre=='Qmono'" >  {{ msj.mensaje }} </div>
+        <div class="mensajeQmono" *ngIf="msj.nombre=='Qmono'" >  {{ msj.mensaje }} <div class="buttonIrA" *ngIf="msj.href" (click)=irA(msj.href)> Ir a la sección </div> </div>
+        
       </div>
 
       <div class="containerMsjTu">
-        <ion-img src={{msj.img}} class="imgTu" *ngIf="msj.nombre=='TU'" > </ion-img>
+        <ion-img src={{msj.img}} class="imgTu" *ngIf="msj.nombre=='TU'" > </ion-img> 
         <div class="mensajeEstudiante" *ngIf="msj.nombre=='TU'" >   {{ msj.mensaje }} </div>
       </div>
       
       
     </div>
-  </ion-list> 
+  </ion-content> 
 
   
 </ion-content>
@@ -26,8 +29,8 @@
 <ion-footer>
   <ion-toolbar>
     <ion-item>
-      <ion-input placeholder="Escribe un mensaje..." [(ngModel)]="msj"></ion-input>
-      <ion-button id="btnEnviar" (click)="sendMessage()" slot="end">Enviar</ion-button>
+      <ion-input placeholder="Escribe un mensaje..." [(ngModel)]="msj" (keyup.enter)="sendMessage()"></ion-input>
+      <div style=" height: 40px; width: 40px; border-radius:50%; background-color: rgb(42, 42, 255);"   id="btnEnviar" (click)="sendMessage()" slot="end"> <img style="height: 80%; width: 80%;padding-top: 20%;padding-left: 25%" src="../../../../assets/icon/sendmsj1.png"> </div>
     </ion-item>
   </ion-toolbar>
 </ion-footer>

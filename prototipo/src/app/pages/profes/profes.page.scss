@@ -29,7 +29,7 @@ ion-button {
     --background-activated: rgba(255, 0, 255, 0);
     --background-focused: rgba(255, 0, 255, 0);
   
-    --color: rgb(118, 34, 0);
+    --color: #f98a3b;
   
     --border-radius: 0;
     --border-color: rgba(255, 0, 255, 0);
@@ -62,9 +62,9 @@ ion-button {
     top: 15%;
     left:5%;
     width: 80%;
-    color:#9365cd;
+    color:#ff8d3c;
     text-decoration-line: underline;
-    text-decoration-color:#9365cd; 
+    text-decoration-color:#ff8d3c; 
     text-decoration-thickness: 2.5px;
 }
 
@@ -78,7 +78,8 @@ ion-button {
 }
 
 .barraBusqueda{
-    background-color: rgba($color: #000000, $alpha: 0.0);
+    // background-color: rgba($color: #000000, $alpha: 0.0);
+    background-color:rgb(129, 71, 29);
     font-size: 110%;
     color: whitesmoke;
     width: 78%;
@@ -87,7 +88,7 @@ ion-button {
 }
 
 .barraBusquedaContainer{
-    background-color: rgb(101, 82, 101);
+    background-color: rgb(129, 71, 29);
     border-radius: 16px;
     position: absolute;
     font-weight: bold;

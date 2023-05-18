@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Keyboard } from '@capacitor/keyboard';
+import { Platform, IonInput } from '@ionic/angular';
 
 //import del service
 import { ApiserviceService } from './../../servicios/apiservice.service';
@@ -11,7 +13,7 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy';
 import { Capacitor } from "@capacitor/core";
 
 //tarjetas de las clases
-import { IonSlides } from '@ionic/angular'; 
+import { AlertController, IonSlides } from '@ionic/angular'; 
 
 //Lineas animadas
 import { GoogleMapsOverlay } from "@deck.gl/google-maps";
@@ -48,14 +50,18 @@ var lineasRuta : google.maps.Polyline;
 var grafoMapa : Grafo;
 
 
+
 class Arista{
   nodoOrigen: Number;
   nodoDestino: Number;
   peso: Number;
+  _this = this;
   constructor(_nodoOrigen: Number,_nodoDestino: Number,_peso: Number){
     this.nodoOrigen = _nodoOrigen;
     this.nodoDestino = _nodoDestino;
     this.peso = _peso;
+    
+    
   }
 }
 
@@ -137,7 +143,9 @@ export class MapaPage implements OnInit {
   LOOP_LENGTH = 300; 
   velocidadRuta = 150; //tiempo de viaje de la linea
   tiempoIntervalo = 6000; //tiempo de peticion para recalcular camino
-  overlay;
+  overlay = new GoogleMapsOverlay({});
+  
+
   polyCucei;
 
   directionsService = new google.maps.DirectionsService();
@@ -155,10 +163,20 @@ export class MapaPage implements OnInit {
   ];
 
   cuceiEntradas = [
-    ["150",20.659433595146243, -103.32449565520099,"",["141"]],
+    ["150", 20.659433595146243, -103.32449565520099,"",["141"]],
     ["009", 20.65452209051408, -103.32673206798312, "",["008"]],
     ["014", 20.65387581354416, -103.3247096824026, "",["013"]],
   ];
+
+  cuceiEntradas2 = [
+    { lat: 20.659433595146243, lng: -103.32449565520099 },
+    { lat: 20.658071371830232, lng:  -103.32445357895679 },
+    { lat: 20.65452209051408, lng: -103.32673206798312 },
+    { lat: 20.654685227953827, lng: -103.32622781269443 },
+    { lat: 20.65387581354416, lng: -103.3247096824026 },
+    { lat: 20.6540402065856, lng: -103.32470431798463 },
+  ];
+
   
   grafoCucei = [
     //["",,"",],
@@ -314,66 +332,190 @@ export class MapaPage implements OnInit {
     ["149",20.658105625373143, -103.32547468539893,"",["138"]],
     ["150",20.659433595146243, -103.32449565520099,"",["141"]],
     ["151",20.658398325460208, -103.3266295631938,"",["146"]],
-    ["152",20.658295411377267, -103.32647525432667,"V1",["147"]],  
+    ["152",20.658295411377267, -103.32647525432667,"V1",["147"]],
+    
+    ["153",20.655830160291256, -103.32517842187622,"TiendasGlobo",[]],//
+    ["154",20.65571799987978, -103.32562058697299,"BancasGlobo",[]],//
+    ["155",20.656016465404686, -103.32527450431762,"BancasGlobo2",[]],//
+    ["156",20.65627314529118, -103.32539411814753,"BañosBeta",[]],//
+    ["157",20.656385069526053, -103.3253829541881,"BañosAlfa",[]],//
+    ["158",20.656156744008968, -103.32641562020925,"BañosJ",[]],//
+    ["159",20.65677763622558, -103.32565204945134,"AuditorioMatute",[]],//
+    ["160",20.65522461407553, -103.32570866968861,"BancasParquin",[]],//
+    ["161",20.654764851689972, -103.32566255758277,"BañosBiblioteca",[]],//
+    ["162",20.654032792253158, -103.3256988977487,"AuditorioEnrique",[]],//
+    ["163",20.65420703419382, -103.32586195985206,"BancasA",[]],//
+    ["164",20.653829271854605, -103.32559832137206,"BancasA2",[]],//
+    ["165",20.65632363505749, -103.32562531829213,"Bancas",[]],//
+    ["166",20.657899766589093, -103.3262420081957,"BancasV2",[]],//
+    ["167",20.657854447056568, -103.32612359654651,"BañosV2",[]],//
+    ["168",20.65819756710122, -103.32722213102237,"BañosX",[]],//
+    ["169",20.658540906111448, -103.32663252206247,"ComidaX",[]],//
+    ["170",20.655937055322344, -103.32519964038497,"ComidaGlobo",[]],//
+    ["171",20.657357665463227, -103.32501773001856,"TiendasP",[]],//
+    ["172",20.65736143010511, -103.32492921712526,"ComidaP",[]],//
+    ["173",20.657313744634376, -103.32492653491637,"BancasP",[]],//
+    ["174",20.657485663237104, -103.32487315944631,"BañosPQ",[]],//
+    ["175",20.65765168364197, -103.32538726490765,"BañosQ",[]],//
+    ["176",20.657288351809054, -103.32640014441206,"AuditorioAlatorre",[]],//
+    ["177",20.657271970259156, -103.32682489074423,"BancasY",[]],//
+    ["178",20.657410007145053, -103.32718833004849,"AuditorioNikolai",[]],//
+    ["179",20.655530523518916, -103.32693608306928,"AuditorioE",[]],//
+    ["180",20.658056628579647, -103.3255276324166,"BañosU",[]],//
+    ["181",20.65727113116869, -103.32607816205702,"ModuloO",[]],//
+    ["182",20.657558853697594, -103.32620028435257,"ModuloS",[]],
+    ["183",20.65787616586773, -103.32653480585286,"ModuloS2",[]],
+    ["184",20.6580060750335, -103.32474252994926,"labIngenierias",[]]
+    //faltan
   ];
 
-  //nombre siiau/numero de nodo/nombre/icono
+  //nombre siiau/numero de nodo/nombre/icono y tipo
   coordsEdificios = [
-    ["DEDX", 144, "Modulo X",""],
-    ["DEDU", 138, "Modulo U",""],
-    ["DEDT", 132, "Modulo T",""],
-    ["DEDW", 134, "Modulo W",""],
-    ["DEDN", 75, "Modulo N",""],
-    ["DEDQ", 122, "Modulo Q",""],
-    ["DEDR", 117, "Modulo R",""],
-    ["DEDV1", 152, "Modulo V1",""],
-    ["DEDV2", 136, "Modulo V2",""],
-    ["DESV1", 9,"Clase online, ve a tu casa",""],
-    ["DESV2", 14,"Clase online, ve a tu casa",""],
-    ["DUCT1", 66,"Modulo Alfa",""],
-    ["DUCT2", 60,"Modulo Beta",""],
-    ["DEDZ2", 108, "Modulo Z2",""],
-    ["DEDY", 106, "Modulo Y",""],
-    ["DEDZ", 104, "Modulo Z",""],
-    ["DEDP", 96, "Modulo P",""],
-    ["DEDM", 74, "Modulo M",""],
-    ["DEDL", 73, "Modulo L",""],
-    ["CTA", 67, "Modulo GAMMA / CTA",""],
-    ["DEDK", 58, "Modulo K",""],
-    ["DEDJ", 54, "Modulo J",""],
-    ["DEDI", 48, "Modulo I",""],
-    ["DEDH", 44, "Modulo H",""],
-    ["DEDG", 42, "Modulo G",""],
-    ["DEDF", 28, "Modulo F",""],
-    ["DEDE", 26, "Modulo E",""],
-    ["SID", 19, "Modulo CID / BIBLIOTECA",""],
-    ["DEDC", 18, "Modulo C",""],
-    ["DEDB", 16, "Modulo B",""],
-    ["DEDD", 11, "Modulo D",""],
-    ["DEDA", 2, "Modulo A / PROULEX",""],
+    ["DEDX", 144, "Modulo X","Edificio"],
+    ["DEDU", 138, "Modulo U","Edificio"],
+    ["DEDT", 132, "Modulo T","Edificio"],
+    ["DEDW", 134, "Modulo W","Edificio"],
+    ["DEDN", 75, "Modulo N","Edificio"],
+    ["DEDQ", 122, "Modulo Q","Edificio"],
+    ["DEDR", 117, "Modulo R","Edificio"],
+    ["DEDV1", 152, "Modulo V1","Edificio"],
+    ["DEDV2", 136, "Modulo V2","Edificio"],
+    ["ENTBOU", 9, "Entrada Boulevar","Entrada"],
+    ["ENTOLIM", 14, "Entrada Calz. Olímpica","Entrada"],
+    ["DUCT1", 66, "Modulo Alfa","Edificio"],
+    ["DUCT2", 60, "Modulo Beta","Edificio"],
+    ["DEDZ2", 108, "Modulo Z2","Edificio"],
+    ["DEDY", 106, "Modulo Y","Edificio"],
+    ["DEDZ", 104, "Modulo Z","Edificio"],
+    ["DEDP", 96, "Modulo P","Edificio"],
+    ["DEDM", 74, "Modulo M","Edificio"],
+    ["DEDL", 73, "Modulo L","Edificio"],
+    ["CTA", 67, "Modulo GAMMA / CTA","Edificio"],
+    ["DEDK", 58, "Modulo K","Edificio"],
+    ["DEDJ", 54, "Modulo J","Edificio"],
+    ["DEDI", 48, "Modulo I","Edificio"],
+    ["DEDH", 44, "Modulo H","Edificio"],
+    ["DEDG", 42, "Modulo G","Edificio"],
+    ["DEDF", 28, "Modulo F","Edificio"],
+    ["DEDE", 26, "Modulo E","Edificio"],
+    ["CID", 19, "Modulo CID / BIBLIOTECA","Edificio"],
+    ["DEDC", 18, "Modulo C","Edificio"],
+    ["DEDB", 16, "Modulo B","Edificio"],
+    ["DEDD", 11, "Modulo D","Edificio"],
+    ["DEDA", 2, "Modulo A / PROULEX","Edificio"],
+    
+    ["TIENGLOB",153,"Tienda del Globo","Tienda"],
+    ["TIENP",171,"Tienda del P","Tienda"],
+    ["BAÑOJ",158,"Baños del J","Baños"],
+    ["AUDIL2",159,"Auditorio Jorge Matute Remus","Auditorio"],
+    ["COMX",169,"Comida en el X","Comida"],
+    ["BANGLOB",154,"Bancas del Globo","Banca"],
+    ["ENTREV",150,"Entrada Revolucion","Entrada"],
+    ["BANGLOB2",155,"Bancas del Globo","Banca"],
+    ["BAÑOBETA",156,"Baños del Beta","Baños"],
+    ["BAÑOALFA",157,"Baños del alfa","Baños"],
+    ["BANPAR",160,"Bancas del estacionamiento","Banca"],
+    ["BAÑOCID",161,"Baños de la biblioteca","Baños"],
+    ["AUDIA",162,"Auditorio Enrique Díaz de León","Auditorio"],
+    ["BANA",163,"Bancas del primer patio del A","Banca"],
+    ["BANA2",164,"Bancas del segundo patio del A","Banca"],
+    ["BANALBE",165,"Bancas cerca del Alfa y Beta","Banca"],
+    ["BANV2",166,"Bancas del V2","Banca"],
+    ["BAÑOV2",167,"Baños del V2","Baños"],
+    ["BAÑOX",168,"Baños del X","Baños"],
+    ["COMGLOB",170,"El Globo tienda de comida","Comida"],
+    ["COMP",172,"Comida en el P","Comida"],
+    ["BANP",173,"Bancas del P","Banca"],
+    ["BAÑOPQ",174,"Baños que estan entre el P y el Q","Baños"],
+    ["BAÑOQ",175,"Baños del Q","Baños"],
+    ["AUDIO",176,"Auditorio Antonio Alatorre","Auditorio"],
+    ["BANY",177,"Bancas del Y (Chedraui)","Banca"],
+    ["AUDIY",178,"Auditorio Nikolai Mitskievich","Auditorio"],
+    ["AUDIE",179,"Auditorio E","Auditorio"],
+    ["BAÑOU",180,"Baños del U","Baños"],
+    ["MODULOO",181,"Modulo O","Edificio"],
+    ["MODULOS",182,"Modulo S","Edificio"],
+    ["MODULOS2",183,"Modulo S2","Edificio"],
+    ["LABINGE",184,"Laboratorio ingenierias","Edificio"]
+    //faltan
   ];
 
-  
+  Iconos = {
+    Edificio: "../../../assets/icon/Edificio.png",
+    Baños: "../../../assets/icon/Baños.png",
+    Auditorio: "../../../assets/icon/Auditorio.png",
+    Tienda: "../../../assets/icon/Tienda.png",
+    Banca: "../../../assets/icon/Banca.png",
+    Entrada: "../../../assets/icon/Entrada.png",
+    Comida: "../../../assets/icon/Comida.png",
+  }
 
   coordsPolygonoCucei = [
     {lat: 20.65331053656428, lng:-103.32584525496068},
+    {lat: 20.654124211403097, lng: -103.32397938832716},
     {lat: 20.65735863188828, lng:-103.32082834813819},
     {lat: 20.660830197797434, lng:-103.32619311516599},
     {lat: 20.657447619209716, lng:-103.32890573041782},
     {lat: 20.65331053656428, lng:-103.32584525496068},
-  ]
+  ] 
 
   busqueda: string;
   map: any;
+  
+  KeyboadIsHide: boolean;
+
   interval: any;
   marcadosresBusqueda = new Array();
 
-  constructor(private route: Router, private servicio: ApiserviceService,private socket: Socket,) {
+  checkbox0:boolean;
+  checkbox1:boolean;
+  checkbox2:boolean;
+  checkbox3:boolean;
+  checkbox4:boolean;
+  checkbox5:boolean;
+  checkbox6:boolean;
+  @ViewChild('busqueda') myInput: IonInput;
+  constructor(private route: Router, private servicio: ApiserviceService,private socket: Socket, public alertController: AlertController,private platform: Platform) {
     this.nombreUsuario = "nombreUsuario";
+    this.checkbox0 = false;
+    this.checkbox1 = false;
+    this.checkbox2 = false;
+    this.checkbox3 = false;
+    this.checkbox4 = false;
+    this.checkbox5 = false;
+    this.checkbox6 = false;
+
+    
+
     var $this = this;
     this.interval = setInterval(function(){
       $this.mostrarAula();
     }, this.tiempoIntervalo);
+
+    Keyboard.addListener('keyboardDidHide', () => {
+      this.KeyboadIsHide = true;
+    });
+
+    Keyboard.addListener('keyboardDidShow', () => {
+      this.KeyboadIsHide = false;
+    });
+
+    
+  
+    window.addEventListener('ionKeyboardDidHide', () => {
+      // Llamar un método cuando se cierra el teclado
+      this.desefoncarBusqueda();
+    });
+  }
+
+  async newAlert(_header: string, _message: string, _buttons: Array<string>) {
+    const alert = await this.alertController.create({
+      header: _header,
+      message: _message,
+      buttons: _buttons
+    });
+
+    await alert.present();
   }
 
   ocultarFlechas(){
@@ -389,7 +531,7 @@ export class MapaPage implements OnInit {
     this.nombreUsuario = this.servicio.getNombre();
     var fieldNameElement = document.getElementById('nombreUsuarioMapa');
     document.getElementById("nombreUsuarioMenuMapa").innerText = this.servicio.getNombre();
-    document.getElementById("codigoUsuarioMenuMapa").innerText = "codigo: "+this.servicio.getCodigo();
+    document.getElementById("codigoUsuarioMenuMapa").innerText = "Código \n"+this.servicio.getCodigo();
     fieldNameElement.textContent = this.nombreUsuario; 
   }
 
@@ -401,14 +543,17 @@ export class MapaPage implements OnInit {
 
   menu(){
     this.route.navigate(['/menu']);
+    //this.dibujarMapa();
   }
   //sideMenu ends
   
   incializarGrafo(){
     grafoMapa = new Grafo;
+
+    
     this.grafoCucei.forEach(edificio => {
       var listaAd = new Array<Arista>();
-
+      
       var i = 0;
 
       while(edificio[4][i] !== undefined){
@@ -427,9 +572,12 @@ export class MapaPage implements OnInit {
         i-=-1;//ROBUSTO, POTENTE, MACIZO.
       }
 
+
       var nodo = new Nodo(edificio[0].toString(),listaAd);
       grafoMapa.nuevoNodo(nodo);
     });
+
+    
   }
 
   //prueba  
@@ -594,28 +742,39 @@ export class MapaPage implements OnInit {
     this.clases = [];
   }
 
+  
+
   ionViewWillEnter(){
     this.asignarNombre();
     this.loadMap();
     this.incializarGrafo();
 
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      
+      this.desefoncarBusqueda();
+      this.desefoncarBusqueda(); 
+
+      this.route.navigate(['/menu']);
+    });
+
     this.polyCucei = new google.maps.Polyline({
-      path: this.cuceiEntradas,
+      path: this.coordsPolygonoCucei,
       geodesic: true,
       strokeColor: "#DE43DB",
       strokeOpacity: 1.0,
       strokeWeight: 5,
     });
-
+    //console.log("aqui si sirve");
     
     //--------------------------------------
     //traer datos con el método
     this.servicio.getHorario();
-    this.socket.once(this.servicio.codigo, (response) => {
+    this.socket.once(this.servicio.codigo+"getHorario", (response) => {
       let datos = JSON.parse(response);
       
       
       var arrayClases = Array.from(datos);
+      
       arrayClases.forEach(cosaDentroDeArray => {
 
         //Funcion para sacar el time de today
@@ -649,7 +808,11 @@ export class MapaPage implements OnInit {
             c.horario = arrayHorario[i][0];
             c.dia = arrayHorario[i][1];
             c.edificio = arrayHorario[i][2];
+
+            console.log("Aula: " + arrayHorario[i][3]);
             c.aula = arrayHorario[i][3];
+
+            
 
             c.flechaAtras = "<";
             c.flechaAdelante = ">";
@@ -753,7 +916,9 @@ export class MapaPage implements OnInit {
   }
 
   ngOnInit(){ 
-    
+    setTimeout(() => {
+      this.brendaEsOnline();
+    }, 3000);
   }
 
   distanceBetweenTwoCoordinates(latOrigen, lngOrigen, latDestino, lngDestino){
@@ -765,6 +930,7 @@ export class MapaPage implements OnInit {
 
     return 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
   }
+
  
   //QMap
   loadMap(){
@@ -791,59 +957,140 @@ export class MapaPage implements OnInit {
     })
   }
 
-  //Metodos para cerrar el teclado
-  desefoncarBusqueda(){
-    document.getElementById("busqueda").inputMode = 'none';
-  }
+  
+  isChecked(){//Mostrar del acordeon "Ver" los marcadores en el mapa
 
-  enfocarBusqueda(){
-    document.getElementById("busqueda").inputMode = 'text';
-  }
-
-  buscar(){//Barra de busqueda en el mapa
+    
     this.marcadosresBusqueda.forEach(marcador => {
       marcador.setMap(null);
     }); 
 
-    if(this.busqueda){
-      this.coordsEdificios.forEach(edificio => {
-        
-        if((edificio[2]).toString().toLowerCase().includes(this.busqueda.toLowerCase())){
-  
-          var direccion={lat: this.grafoCucei[edificio[1]][1], lng: this.grafoCucei[edificio[1]][2]};
-  
-          const infoWindow = new google.maps.InfoWindow();
-  
-          var marker = new google.maps.Marker({
-            position: direccion,
-            map: map,
-            title: edificio[2],
-          });
+    this.marcadosresBusqueda.splice(this.marcadosresBusqueda.length);
+    
 
-          marker.addListener("click", () => {
-            infoWindow.close();
-            infoWindow.setContent(marker.getTitle());
-            infoWindow.open(marker.getMap(), marker);
-          });
-          this.marcadosresBusqueda.push(marker);
-        }
-  
-      });
+    var marcadores = [this.checkbox0,this.checkbox1,this.checkbox2,this.checkbox3,this.checkbox4,this.checkbox5,this.checkbox6];
+    for (let index = 0; index < marcadores.length; index++) {
+      const marcadorBool = marcadores[index];
+      var icono = "";
+      switch(index){
+        case 0: icono = "Baños"; break;
+        case 1: icono = "Edificio"; break;
+        case 2: icono = "Auditorio"; break;
+        case 3: icono = "Tienda"; break;
+        case 4: icono = "Comida"; break;
+        case 5: icono = "Banca"; break;
+        case 6: icono = "Entrada"; break;
+        default: break;
+      }
+
+      
+      if(marcadorBool){
+        this.coordsEdificios.forEach(edificio => {
+        
+          if((edificio[3]).toString() == icono){
+    
+            var direccion={lat: this.grafoCucei[edificio[1]][1], lng: this.grafoCucei[edificio[1]][2]};
+    
+            const infoWindow = new google.maps.InfoWindow();
+    
+            var marker = new google.maps.Marker({
+              position: direccion,
+              icon: this.Iconos[edificio[3]],
+              map: map,
+              title: edificio[2],
+            });
+    
+            marker.addListener("click", () => {
+              infoWindow.close();
+              infoWindow.setContent(marker.getTitle());
+              infoWindow.open(marker.getMap(), marker);
+            });
+            this.marcadosresBusqueda.push(marker);
+          }
+    
+        });
+      }
+      
     }
+
+
+    // var marker = new google.maps.Marker({
+    //   position: direccion,
+    //   icon: this.Iconos[edificio[3]],
+    //   map: map,
+    //   title: edificio[2],
+    // });
+    
+    
+    
   }
 
-  dentroCucei(currentCoords){
-    //funcion que calcula si estas dentro o fuera de cucei
-    return true;
+  async desefoncarBusqueda(){//Metodos para cerrar el teclado
+    document.getElementById("busqueda").inputMode = 'none';
+    this.myInput.setBlur(); 
+  }
+
+  async enfocarBusqueda(){
+    document.getElementById("busqueda").inputMode = 'text';
+    this.myInput.setFocus(); 
+  }
+
+  buscar(){//Barra de busqueda en el mapa
+    
+    setTimeout(() => {
+    
+      this.isChecked();
+
+      if(this.busqueda){
+        this.coordsEdificios.forEach(edificio => {
+          
+          if((edificio[2]).toString().toLowerCase().includes(this.busqueda.toLowerCase())){
+    
+            var direccion={lat: this.grafoCucei[edificio[1]][1], lng: this.grafoCucei[edificio[1]][2]};
+    
+            const infoWindow = new google.maps.InfoWindow();
+    
+            var marker = new google.maps.Marker({
+              position: direccion,
+              icon: this.Iconos[edificio[3]],
+              map: map,
+              title: edificio[2],
+            });
+
+            marker.addListener("click", () => {
+              infoWindow.close();
+              infoWindow.setContent(marker.getTitle());
+              infoWindow.open(marker.getMap(), marker);
+            });
+            this.marcadosresBusqueda.push(marker);
+          }
+    
+        });
+      }
+    }, 500);
+  }
+
+  brendaEsOnline(){
+    this.theSlides.getActiveIndex().then((index)=> {
+      if(this.clases[index].edificio == "DESV1" || this.clases[index].edificio == "DESV2"){
+        this.newAlert("Clase online","Regresa a tu casa",["Ok"])
+
+        this.overlay.setMap(null);
+        this.overlay.finalize();
+      }
+
+    });
+    
   }
 
   mostrarAula(){
-    console.log(this.clases);
+    //console.log(this.clases);
     
     this.theSlides.getActiveIndex().then((index)=> {
       if(!this.clases[0].aula){//Si no hay clase seleccionada
         return;
       }
+      
 
       //Coordenadas de la clase seleccionada
       var lat:number;
@@ -858,6 +1105,8 @@ export class MapaPage implements OnInit {
           nombreModulo = edificio[2];
         }
       });
+
+      
       
       //Dibujar la linea de la ruta desde la posicion actual hasta el aula seleccionada
       getPosition().then((currentCoords)=> {
@@ -865,8 +1114,8 @@ export class MapaPage implements OnInit {
         //buscar la coordenada del nodo del grafo mas cercano a la posicion actual
         var distanciaMin = this.distanceBetweenTwoCoordinates(currentCoords.coords.latitude, currentCoords.coords.longitude, this.grafoCucei[0][1], this.grafoCucei[0][2]);
         var id;
-
-        if(google.maps.geometry.poly.containsLocation({lat: currentCoords.coords.latitude, lng:currentCoords.coords.longitude}, this.polyCucei)){
+                                                      //{lat: 20.656016552319414 , lng:-103.32632290066825}
+        if(google.maps.geometry.poly.containsLocation({lat: currentCoords.coords.latitude , lng:currentCoords.coords.longitude}, this.polyCucei)){
           //console.log("Dentro cucei");
           
           this.grafoCucei.forEach(nodo => {
@@ -881,6 +1130,9 @@ export class MapaPage implements OnInit {
               id = nodo[0];
             }
           });
+
+
+
         }else{
           //console.log("Fuera cucei");
           this.cuceiEntradas.forEach(nodo => {
@@ -913,11 +1165,11 @@ export class MapaPage implements OnInit {
           }).then((response) => {
             let ruta = response.routes[0].legs[0].steps;
 
-            console.log(response.routes[0]);  
+            //console.log(response.routes[0]);  
             
-            for(var q = 0; q<response.routes[0].legs.length; q++){
-              console.log(response.routes[0].legs[q].start_location.lat() + " " + response.routes[0].legs[q].start_location.lng()); 
-            }
+            // for(var q = 0; q<response.routes[0].legs.length; q++){
+            //   console.log(response.routes[0].legs[q].start_location.lat() + " " + response.routes[0].legs[q].start_location.lng()); 
+            // }
             ruta.forEach(vector => {
               
               let latOrigen = vector.lat_lngs[0].lat();
@@ -934,31 +1186,47 @@ export class MapaPage implements OnInit {
             });
             
 
-            this.directionsRenderer.setDirections(response);
+            //this.directionsRenderer.setDirections(response);
           })
           .catch((e) => console.log("Directions request failed due to " + status)
           );
 
-          this.polyCucei.setMap(map);
+          
+          //this.polyCucei.setMap(map);
+          
 
           //this.directionsRenderer.setMap(map);
         }
 
-        //obtener camino minimo
-        this.disjktra(parseInt(id),parseInt(idModulo));        
+
+        const infoWindow = new google.maps.InfoWindow();
 
         if(marker != null){
           marker.setMap(null);
         }
+        //obtener camino minimo
+        if(this.clases[index].edificio == "DESV1" ||  this.clases[index].edificio == "DESV2"){
+          marker = new google.maps.Marker({
+            position: {lat, lng},
+            map: map,
+            title: nombreModulo,
+          }); 
 
-        const infoWindow = new google.maps.InfoWindow();
+          marker.setVisible(false);
+        }else{
+          
+          this.disjktra(parseInt(id),parseInt(idModulo)); 
+          marker = new google.maps.Marker({
+            position: {lat, lng},
+            map: map,
+            title: nombreModulo,
+          }); 
+          marker.setVisible(true);
+        }
+              
 
         //Crear marcador en las coordenadas del aula actual
-        marker = new google.maps.Marker({
-          position: {lat, lng},
-          map: map,
-          title: nombreModulo,
-        }); 
+        
 
         marker.addListener("click", () => {
           infoWindow.close();
@@ -975,11 +1243,106 @@ export class MapaPage implements OnInit {
           map: map,
           title: "Tu",
           icon: "../../../assets/icon/QmonoChiquito.gif"
-        });         
+        });
+        
+        
 
       })
     }) 
   }
+
+  // This example creates a 2-pixel-wide red polyline showing the path of
+// the first trans-Pacific flight between Oakland, CA, and Brisbane,
+// Australia which was made by Charles Kingsford Smith.
+
+// function initMap(): void {
+//   const map = new google.maps.Map(
+//     document.getElementById("map") as HTMLElement,
+//     {
+//       zoom: 3,
+//       center: { lat: 0, lng: -180 },
+//       mapTypeId: "terrain",
+//     }
+//   );
+
+//   const flightPlanCoordinates = [
+//     { lat: 37.772, lng: -122.214 },
+//     { lat: 21.291, lng: -157.821 },
+//     { lat: -18.142, lng: 178.431 },
+//     { lat: -27.467, lng: 153.027 },
+//   ];
+//   const flightPath = new google.maps.Polyline({
+//     path: flightPlanCoordinates,
+//     geodesic: true,
+//     strokeColor: "#FF0000",
+//     strokeOpacity: 1.0,
+//     strokeWeight: 2,
+//   });
+
+//   flightPath.setMap(map);
+// }
+
+// declare global {
+//   interface Window {
+//     initMap: () => void;
+//   }
+// }
+// window.initMap = initMap;
+
+
+  dibujarMapa(){ //dibuja todo XD
+    for (let index = 0; index < this.grafoCucei.length; index++) {
+      const nodoOrigen = this.grafoCucei[index];
+
+      let coordOrig={lat: nodoOrigen[1], lng: nodoOrigen[2]};
+
+      let marker = new google.maps.Marker({
+        position: coordOrig,
+        icon: this.Iconos["Entrada"],
+        map: map,
+        title: nodoOrigen[0],
+      });
+
+      let infoWindow = new google.maps.InfoWindow();
+
+      marker.addListener("click", () => {
+        infoWindow.close();
+        infoWindow.setContent(marker.getTitle());
+        infoWindow.open(marker.getMap(), marker);
+      });
+
+      let index2 = 0;
+      while(this.grafoCucei[index][4][index2] !== undefined){
+        const nodoAd = this.grafoCucei[Number(this.grafoCucei[index][4][index2])];
+        console.log("index:");
+        console.log(index);
+
+        console.log("index2:");
+        console.log(index2);
+
+        console.log("nodoAd:");
+        console.log(nodoAd);
+        const origDest = [
+          { lat: nodoOrigen[1], lng: nodoOrigen[2] },
+          { lat: nodoAd[1], lng: nodoAd[2] },
+        ];
+
+
+        const linea = new google.maps.Polyline({
+          path: origDest,
+          geodesic: true,
+          strokeColor: "#0FFF00",
+        });
+
+        linea.setMap(map);
+
+
+        index2++;
+      }
+
+    }
+  }
+
 
   disjktra(idNodoOrigen,idNodoDestino){
     //limpiar datos
@@ -1076,10 +1439,17 @@ export class MapaPage implements OnInit {
       rutaFueraCuceiTiempoReversed.push((tiempoActual));
     });
 
+    console.log("rutaFueraCuceiTiempoReversed");
     console.log(rutaFueraCuceiTiempoReversed);
+
+    if(rutaFueraCuceiTiempoReversed.length ==0){
+      rutaFueraCuceiTiempoReversed.push(0);
+    }
     
 
     let timeStampReversed = [];
+
+    console.log(this.timeStamp);
 
     this.timeStamp.reverse().forEach(element => {
       timeStampReversed.push((element+(rutaFueraCuceiTiempoReversed[rutaFueraCuceiTiempoReversed.length-1])));
@@ -1088,27 +1458,32 @@ export class MapaPage implements OnInit {
     //Convertir datos PD: ESTA PORQUERIA NO JALA SI NO SE PONE ASÍ, SINO LE DAN "AMCIAS"
 
     
-    console.log(this.rutaFueraCucei[0]);
+     //console.log(this.rutaFueraCucei[0]);
     
 
     let datos = [{
       vendor: 0, 
       path: this.rutaFueraCucei[0].concat(this.ruta.reverse()),
       timestamps: rutaFueraCuceiTiempoReversed.concat(timeStampReversed),
-    }] 
+    }];
+
+    console.log(rutaFueraCuceiTiempoReversed.concat(timeStampReversed));
+    //console.log(timeStampReversed);
+    //console.log(rutaFueraCuceiTiempoReversed);
   
     this.rutaFueraCucei[0];
     this.rutaFueraCucei[1];
     this.rutaFueraCucei=[[],[]];
 
-    //ANIMACION MAMALONA
+    //ANIMACION MAMALONA 
 
     if(this.overlay){
-      this.overlay.setMap(null);
+      //this.overlay.setMap(null);
       this.overlay.finalize();
     }
     
-    this.overlay = new GoogleMapsOverlay({});
+
+
     let currentTime = 0;
     const props = {
       
@@ -1171,6 +1546,8 @@ export class MapaPage implements OnInit {
   }
 }
 
+
+
 function CenterControl(controlDiv: Element, map: google.maps.Map) {
   // Set CSS for the control border.
   const controlUI = document.createElement("div");
@@ -1223,6 +1600,10 @@ const showCurrentPosition = async () => {
       streetViewControl: false,
       mapTypeControl: false,
       fullscreenControl: false,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER,
+      }
     }
   );
 

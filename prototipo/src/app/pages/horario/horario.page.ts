@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiserviceService } from './../../servicios/apiservice.service';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
-import { AlertController } from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, IonSlides, AlertController } from '@ionic/angular';
 import { Socket } from 'ngx-socket-io';
-
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+//import { Network } from '@capacitor/network';
 
 class Horario{
   dia: string;
@@ -41,22 +41,58 @@ interface RGB {
 })
 
 export class HorarioPage implements OnInit {
+  @ViewChild('content', { static: false }) content: ElementRef;
+  @ViewChild('materiasHorario')  slides: IonSlides;
+  
+
+  keyboardOpen = false;
+
   materias: Array<Materia>;
   busquedaMaterias: Array<Materia>;
   busquedaHorario: string;
   agregandoMateria: boolean;
   listaNrc: string;
-
-  constructor(private route: Router, private servicio: ApiserviceService,public alertController: AlertController, private loadingCtrl: LoadingController,private socket: Socket) {
+  interval:any;
+  constructor(private route: Router, private servicio: ApiserviceService,public alertController: AlertController, private loadingCtrl: LoadingController,private socket: Socket, private keyboard: Keyboard) {
     this.materias = []; 
     this.busquedaMaterias = [];
     this.busquedaHorario = "";
     this.agregandoMateria = false;
     this.listaNrc = "";
+    this.interval;
+    
   }
 
-  ngOnInit(){   
 
+  async swipeNext(){
+    
+    console.log("AQUÍ");
+    console.log(this.slides);
+    var L = await this.slides.length();
+    
+    console.log(L);
+    console.log(this.slides.length());
+    this.slides.slideTo(L-1);
+  }
+
+  ngOnInit(){  
+    //Comprobacion de la conexion entre cliente y servidor
+    
+    this.keyboard.onKeyboardWillShow().subscribe(() => {
+      console.log('Teclado abierto');
+      this.keyboardOpen = true;
+      var e = document.getElementById("horarioPageContainer");
+      e.style.height = "150%";
+      // Aquí puedes agregar el código que quieres ejecutar cuando se abra el teclado
+    });
+  
+    this.keyboard.onKeyboardWillHide().subscribe(() => {
+      console.log('Teclado cerrado');
+      this.keyboardOpen = false;
+      var e = document.getElementById("horarioPageContainer");
+      e.style.height = "100%";
+      // Aquí puedes agregar el código que quieres ejecutar cuando se cierre el teclado
+    });
   }
 
   ionViewWillEnter() {
@@ -86,7 +122,7 @@ export class HorarioPage implements OnInit {
 
     // obtener horario anterior
     this.servicio.getHorarioAlumno(this.servicio.getCodigo());
-    this.socket.once(this.servicio.getCodigo(),async (response) => {
+    this.socket.once(this.servicio.getCodigo()+"getHorarioAlumno",async (response) => {
       let datos = JSON.parse(response);
       
       var i = 0;     
@@ -996,7 +1032,10 @@ export class HorarioPage implements OnInit {
       //desactiva imagen cargando
     }, 500);
     
-    
+    setTimeout(() => {
+      this.swipeNext();
+      //desactiva imagen cargando
+    }, 600);
   }
 
   async inicializarBusqueda(){
@@ -1174,7 +1213,7 @@ export class HorarioPage implements OnInit {
 
   guardarHorario(){
     this.servicio.borrarHorario(this.servicio.getCodigo());
-    this.socket.once(this.servicio.getCodigo(),(resultado) => {
+    this.socket.once(this.servicio.getCodigo()+"borrarHorario",(resultado) => {
       console.log("el resultado es: " + resultado);
     });
 
@@ -1202,7 +1241,7 @@ export class HorarioPage implements OnInit {
           //console.log("con codigo: " + this.servicio.getCodigo());
 
           this.servicio.setHorarioAlumno(this.servicio.getCodigo(),clase.nrc.split(" ")[1]);
-          this.socket.once(this.servicio.getCodigo(),(resultado) => {
+          this.socket.once(this.servicio.getCodigo()+"setHorarioAlumno",(resultado) => {
             console.log("el resultado es: " + resultado); //CAMBIAR POR ALERT?
           })
           /*this.servicio.setHorarioAlumno(this.servicio.getCodigo(),clase.nrc.split(" ")[1]).subscribe((resultado) => {

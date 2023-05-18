@@ -6,6 +6,7 @@ import { ApiserviceService } from './../../servicios/apiservice.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Socket } from 'ngx-socket-io';
+import { Keyboard } from '@capacitor/keyboard';
 
 
 class resultado{
@@ -33,18 +34,21 @@ export class ProfesPage implements OnInit {
 
   constructor(private servicio: ApiserviceService, private ngZone: NgZone, private route: Router, public menuCtrl: MenuController,private socket: Socket) { }
 
+  ionViewDidEnter() {}
   ngOnInit() {
+
+    console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
     this.asignarNombre();
     
     this.servicio.getProfes();
-    this.socket.once(this.servicio.getCodigo(),(respuesta) => {
+    this.socket.once(this.servicio.getCodigo()+"getProfes",(respuesta) => {
       respuesta = JSON.parse(respuesta);
       var i = 0;
       
       while(respuesta[i] != undefined){
         var r = new resultado();
-        console.log(respuesta[i]);
+        //console.log(respuesta[i]);
         
         
         r.value = respuesta[i]['codigo'].toString();
@@ -61,13 +65,17 @@ export class ProfesPage implements OnInit {
         respuesta2 = JSON.parse(respuesta2);
         while(respuesta2[i] != undefined){
           var r = new resultado();
-          console.log(respuesta2[i]);
+          //console.log(respuesta2[i]);
           r.value = respuesta2[i]['clave'].toString();
           r.text = respuesta2[i]['nombre'].toString();
   
           this.materias.push(r);
           i++;
         }
+
+        console.log("HERE2 xd");
+        console.log(this.profes);
+        console.log(this.materias);
       });
     });
     
@@ -80,6 +88,10 @@ export class ProfesPage implements OnInit {
     document.getElementById("nombreUsuarioProfes").textContent = this.servicio.getNombre();
     document.getElementById("nombreUsuarioMenuProfes").innerText = this.servicio.getNombre();
     document.getElementById("codigoUsuarioMenuProfes").innerText = "codigo: "+this.servicio.getCodigo();
+  }
+
+  mostrarTeclado(){
+    Keyboard.show()
   }
   
   BuscarMateriaProfe(datos){//Busca la opcion seleccionada   
@@ -127,6 +139,11 @@ export class ProfesPage implements OnInit {
         }
       });
     }
+
+    console.log("HERE");
+    console.log(this.profes);
+    console.log(this.materias);
+    console.log(this.resultados);
 
   }
 

@@ -1,4 +1,4 @@
-<ion-content class="background" >
+<ion-content id="horarioPageContainer" class="background" >
 
 
   <!-- ION  SLIDE MENU -->
@@ -9,13 +9,13 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <div style="position: absolute; left: 4px;" id="codigoUsuarioMenuHorario" ></div>
-
-      <ion-textarea id="textareaNRC" [readonly]="true" rows="10"  style="position: absolute; top:20%; width: 150px; height: 300px; left: 0px" placeholder="Tus clases aquí" [(ngModel)]="listaNrc" [autoGrow]="false" ></ion-textarea>
-
-      <ion-button class="btnMenu" (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px;" >Menú</ion-button>
-      <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px;">Cerrar sesión</ion-button>
-    </ion-content> 
+      <div style="position: absolute; left: 4px; color: transparent;" id="codigoUsuarioMenuHorario" ></div>
+      <img src="../../../assets/icon/logoCucei.png" alt="" style="position: absolute; left: 25%; top:5%; width: 90px; height: 90px;">
+      <img src="../../../assets/icon/qmono 3d.gif" alt="" *ngIf="busquedaHorario == 'Qmono3d'" style="position: absolute; left: 0%; top:35%; width: 200px; height: 150px; background-color: red;">
+      <ion-textarea id="textareaNRC" class="textareaNRC" [readonly]="true" rows="14"  placeholder="Tus clases aquí" [(ngModel)]="listaNrc" [autoGrow]="false" ></ion-textarea>
+      <ion-button (click)="menu()" color="success" style="position: absolute; left:12px; top:80%; width: 150px; height: 30px; border-radius: 0px;" >Menú</ion-button>
+      <ion-button (click)="cerrar()" color="danger" style="position: absolute; left:12px; top:90%; width: 150px; height: 30px; border-radius: 0px;">Cerrar sesión</ion-button>
+    </ion-content>
   </ion-menu>
 
   <div id="main-contentHorario" class="containerBtnMenu">
@@ -140,7 +140,7 @@
         <ion-button (click)="guardarHorario()" class="buttonToolbarG">Guardar</ion-button>
   </div>
 
-  <ion-slides id="materiasHorario" class="materias_container" [options]="{  freeMode: false, slidesPerView:2, speed: 500, spaceBetween: 0, slidesPerGroup: 1, slidesPerColumn: 1  }" [scrollY]="true" (ionSlideDidChange)="this.comprobarClases()"> 
+  <ion-slides id="materiasHorario" #materiasHorario class="materias_container" [options]="{  freeMode: false, slidesPerView:2, speed: 500, spaceBetween: 0, slidesPerGroup: 1, slidesPerColumn: 1  }" [scrollY]="true" (ionSlideDidChange)="this.comprobarClases()"> 
    
     <ion-slide *ngFor="let m of materias; index as ixM"  class="containerColumnaMaterias" [scrollY]="true">
       
@@ -150,26 +150,20 @@
               <div [innerText]="m.nombre" class="tituloMateria">Materia</div>
             </ion-row>
 
-            <!--Precaucion pendejes programando-->
             <ion-row *ngFor="let clase of m.clases; index as ixC" class="cuadriculaMaterias" (click)="seleccionarClase(ixM, ixC)">
-              <div class="textoMaterias" [innerText]="clase.nombreProfe">clase</div>
-              <div class="textoMaterias" [innerText]="clase.nrc">clase</div>
+              <div style="width: 75%; height: 13vh; border-radius: 15%;">
+                <div class="textoMaterias" [innerText]="clase.nombreProfe">clase</div>
+                <div class="textoMateriasNRC" [innerText]="clase.nrc">clase</div>
 
-              <div class="horariosTarjeta" >
-                <div *ngFor="let horario of clase.horarios; index as ix2" class="horariosContainer"> 
-                  <div class="horarioDia" [innerText]="horario.dia" > </div>
-                  <div class="horarioHora" [innerText]="horario.horaInicio+'-'+horario.horaTermino" ></div>
+                <div class="horariosTarjeta" >
+                  <div *ngFor="let horario of clase.horarios; index as ix2" class="horariosContainer"> 
+                    <div class="horarioDia" [innerText]="horario.dia" > </div>
+                    <div class="horarioHora" [innerText]="horario.horaInicio+'-'+horario.horaTermino" ></div>
+                  </div>
                 </div>
               </div>
               
-              <!-- <ion-slides class="horariosContainer" pager="false" [options]="{ autoplay:false, speed: 500,  slidesPerView: 2 }">
-                <ion-slide class="horariosTarjeta" *ngFor="let horario of clase.horarios; index as ix2">
-                  <div class="horario" [innerText]="horario.dia+' '+horario.horaInicio+'-'+horario.horaTermino "></div>
-                </ion-slide>
-              </ion-slides>  -->
-              
-              <div class="colorMaterias"> a</div> 
-              <!--Precaucion pendejes programando-->
+              <div class="colorMaterias"></div>
               
             </ion-row>
             

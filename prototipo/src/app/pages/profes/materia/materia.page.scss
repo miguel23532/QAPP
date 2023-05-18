@@ -25,7 +25,7 @@ ion-button {
     --background-activated: rgba(255, 0, 255, 0);
     --background-focused: rgba(255, 0, 255, 0);
   
-    --color: rgb(118, 34, 0);
+    --color: #f98a3b;
   
     --border-radius: 0;
     --border-color: rgba(255, 0, 255, 0);
@@ -70,7 +70,7 @@ ion-button {
     font-size: 3.5vh;
     font-weight: bold;
     width: 85%;
-    border-color: #70b4d6;
+    border-color: #ff8d3c;
     border-width: 6px;
     border-style: solid;
     border-radius: 15px;
@@ -99,7 +99,7 @@ ion-button {
     //color: #DBBDA9;
     color: whitesmoke;
     font-weight: bold;
-    background-color: #454487;
+    background-color: rgb(129, 71, 29);
     height: 90%;//150 5f4487
     margin-top: 10px;
     margin-left: 5px;
@@ -109,7 +109,7 @@ ion-button {
 
 .container{
     border-color: #70b4d6;
-    height: 50%;
+    height: 52%;
     width: 90%;
     position: absolute;
     top: 42.5%;
@@ -132,7 +132,7 @@ ion-button {
     height: 50px;
     background-color: transparent;
     border-style: solid;
-    border-color: #70b4d6;
+    border-color: transparent;//rgb(129, 71, 29)
     height: fit-content;
     border-radius: 10px;
     width: 90%;

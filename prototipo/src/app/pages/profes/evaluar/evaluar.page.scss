@@ -25,7 +25,7 @@ ion-button {
   --background-activated: rgba(255, 0, 255, 0);
   --background-focused: rgba(255, 0, 255, 0);
 
-  --color: rgb(118, 34, 0);
+  --color: #f98a3b;
 
   --border-radius: 0;
   --border-color: rgba(255, 0, 255, 0);
@@ -97,9 +97,10 @@ ion-range::part(tick-active) {
   
 ion-range::part(pin) { //bola de arriba con el numero
   display: inline-flex;
+  font-size: 2vh;
   align-items: center;
   justify-content: center;
-  background: #dfafff;
+  background: #ff8d3c;
   font-weight: bold;
   color: rgb(0, 0, 0);
 }
@@ -127,18 +128,20 @@ ion-range{
 .btnEvaluar{
     //background: url(../../../../assets/icon/Informacion_background.png) 0 0/100% 100% no-repeat;
     position: absolute;
-    top: 87%;
-    left: 30%;
+    top: 88%;
+    left: 5%;
     border-width: 30%;
     border-style: outset;
     border-radius: 10px;
-    border-color: #fdd302;
-    background-color: #fdd302;
-    color: #000000;
-    width: 35%;
-    height: 4.3%;
+    border-color: #ff8d3c;
+    background-color: transparent;
+    color: #ff8d3c;
+    //padding: 1.5%;
+    width: 85%;
+    height: 5%;
     text-align: center;
     font-weight: bolder;
+    vertical-align: middle;
 }
 
 .nombreProfeEvaluar{

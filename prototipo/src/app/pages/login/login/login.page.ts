@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from './../../../servicios/apiservice.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { Socket } from 'ngx-socket-io';
-
 
 @Component({
   selector: 'app-login',
@@ -21,7 +20,7 @@ export class LoginPage implements OnInit {
   selectedCardIndexreg = 0;
 
   visible = false;
-  constructor(private route: Router, private servicio: ApiserviceService, public alertController: AlertController,private socket: Socket) {
+  constructor(private route: Router, private servicio: ApiserviceService, public alertController: AlertController,private socket: Socket, private platform: Platform) {
     this.regimg = [
       {
         img: "../../../../assets/icon/Registro.png",
@@ -40,6 +39,16 @@ export class LoginPage implements OnInit {
     ];
     
 
+    
+    
+
+  }
+
+
+  ionViewWillEnter(){
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.route.navigate(['/login']);
+    });
   }
 
   ngOnInit() {}
@@ -64,6 +73,8 @@ export class LoginPage implements OnInit {
 
     await alert.present();
   }
+
+  
 
   nextpage(page) {
     this.route.navigate([page]);
@@ -117,7 +128,7 @@ export class LoginPage implements OnInit {
 
       let socket = this.servicio.login(this.passLogin,this.codigoLogin);
 
-      socket.once(this.codigoLogin, (respuesta) => {
+      socket.once(this.codigoLogin+"login", (respuesta) => {
       respuesta = JSON.parse(respuesta);
 
       if(respuesta && respuesta!=undefined){

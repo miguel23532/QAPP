@@ -21,7 +21,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 //const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
-const config: SocketIoConfig = { url: 'http://187.201.148.222:3001', options: {} };
+const config: SocketIoConfig = { url: 'http://*IP DEL SERVIDOR*:3001', options: {} };
 
 @NgModule({
     declarations: [AppComponent, GoogleMapComponent],
@@ -29,4 +29,4 @@ const config: SocketIoConfig = { url: 'http://187.201.148.222:3001', options: {}
     providers: [ScreenOrientation, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
     bootstrap: [AppComponent]
 })
-export class AppModule {} 
+export class AppModule {}

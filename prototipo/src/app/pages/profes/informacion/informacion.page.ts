@@ -90,7 +90,7 @@ export class InformacionPage implements OnInit {
 
   asignarMateriasProfe(){
     this.servicio.getDatosProfe(this.codigoProfe);
-    this.socket.once(this.servicio.getCodigo(),(response) => {
+    this.socket.once(this.servicio.getCodigo()+"getDatosProfe",(response) => {
       let datos = JSON.parse(response);
       var i = 0;
       while(datos[i] != undefined){
@@ -121,7 +121,7 @@ export class InformacionPage implements OnInit {
 
   asignarEvaluacionProfe(){
     this.servicio.getPromedioProfe(this.codigoProfe);
-    this.socket.once(this.servicio.getCodigo(),(response)=>{
+    this.socket.once(this.servicio.getCodigo()+"getPromedioProfe",(response)=>{
     let datos = JSON.parse(response);
 
     

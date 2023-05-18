@@ -46,7 +46,7 @@ export class EvaluarPage implements OnInit {
     console.log(this.servicio.getCodigo()+" codigo profe: "+ this.codigoProfe);
     
     this.servicio.obtenerEvaluacionProfe(this.servicio.getCodigo(),this.codigoProfe);
-    this.socket.once(this.servicio.getCodigo(), (respuesta) => {
+    this.socket.once(this.servicio.getCodigo()+"obtenerEvaluacionProfe", (respuesta) => {
       if(respuesta){
         console.log("obtenerEvaluacionAnt");
         (<HTMLIonRangeElement>document.getElementById("flexibilidadEvaluar")).value = respuesta[0]["flexibilidad"];
@@ -76,7 +76,7 @@ export class EvaluarPage implements OnInit {
     e.interes = (<HTMLIonRangeElement>document.getElementById("interesEvaluar")).value.toString();
 
     this.servicio.evaluarProfe(e);
-    this.socket.once(this.servicio.getCodigo(), (respuesta) => {
+    this.socket.once(this.servicio.getCodigo()+"evaluarProfe", (respuesta) => {
       if(respuesta = 0){
         console.log("Hubo un problema al subir la evaluacion");        
       }else{

@@ -1,6 +1,5 @@
 .background{
   --background: url(../../../assets/icon/Mapa_background.png) 0 0/100% 100% no-repeat;
-
 }
 
 ion-menu::part(backdrop) {
@@ -13,10 +12,17 @@ ion-menu::part(container) {
     box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
 }
 
+ion-checkbox::container {
+  --border-color: red;
+  background-color: #f4716d;
+}
+
+
+
 .containerBtnMenu{
     position: absolute;
-        top: 3%;
-        right: 3%;
+    top: 3%;
+    right: 3%;
 }
 
 ion-button {
@@ -25,7 +31,7 @@ ion-button {
   --background-activated: rgba(255, 0, 255, 0);
   --background-focused: rgba(255, 0, 255, 0);
 
-  --color: rgb(118, 34, 0);
+  --color: rgb(244,113,109);
 
   --border-radius: 0;
   --border-color: rgba(255, 0, 255, 0);
@@ -50,6 +56,8 @@ ion-button {
 }
 
 #map { //mapa
+  color: black; //color del texto de infowidow
+  font-weight: bold;
   position: absolute;
   top: 11%;
   left: 5%;
@@ -79,14 +87,19 @@ ion-button {
   text-align: center;
   background-color: darkgray;
   position: absolute;
-  top: 13%;
+  top: 13.5%;
   left: 9%;
-  width: 85%;
+  width: 42.5%;
   height: 40px;
   border-style: solid;
   border-radius: 25px;
   border-width: 3px;
   border-color: black;
+  ///
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .clasesContainer{
@@ -158,3 +171,85 @@ ion-button {
   left: 2%;
   height: 20%;
 }
+
+/*ion-fab-button::part(native) {
+  top: 325%;
+  height: 75%;
+  width: 75%;
+  left: 650%;
+  margin-top: -100px; 
+}
+
+.mainfabbutton{
+  margin-top: 100px;
+}*/
+
+.puntosMapa{
+  position: absolute;
+  top: 13%;//20
+  left: 60%;
+  width: 35%;
+}
+
+.containerPuntoMapa{
+  height: 30px;
+  background-color:white;
+  color: black;
+}
+
+ion-accordion::part(header) {
+  
+  background-color:rgb(180, 180, 180);
+  color: rgb(0, 0, 0);
+  --color: rgb(0, 0, 0);
+  
+}
+
+
+
+ion-accordion::part(content) {
+  
+  background-color:white;
+  color: black;
+
+  
+  
+}
+
+.item-background-color {
+  --ion-item-background: white !important;
+  --ion-color-contrast: black;
+}
+
+.puntoMapaCheckBox{
+  position: absolute;
+  width: 10%;
+  height: 5%;
+  margin-top: 7%;
+  left: 5%;
+}
+
+ion-checkbox::part(container) {
+  --border-color: #f4716d;
+  background-color: #f98581;
+  --border-radius: 6px;
+  --border-color-checked:  #f4716d;
+  --checkmark-color: black;
+}
+
+.puntoMapaNombre{
+  position: relative ;
+  top: 25%;
+  font-size: 1.5vh; 
+  height: 1%;
+  margin-left: 45%;
+}
+
+.puntoMapaIconos{
+  
+  margin-top: 3%;
+  margin-left: 25%;
+  width: 15%;
+  height: 60%;
+}
+
