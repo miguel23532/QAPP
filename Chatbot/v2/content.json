@@ -2,7 +2,7 @@
   [
     {
       "tag":"saludos",
-      "input":["hola","que tal","mucho gusto","hola, eres el Qmono","hay alguien aqui?","que onda","hola a todos","hey","que hubo","mucho gusto","holas"],
+      "input":["hola","mucho gusto","hola, Qmono","hay alguien aqui?"," onda","hola a todos","hey","que hubo","mucho gusto","holas","Buen dia", "saludos", "encantado de conocerte", "hola, ¿cómo estás?", "¿hay alguien que me escuche?", "buenas tardes", "hola, soy tu amigo", "hola, ¿qué tal?", "qué onda", "mucho gusto en saludarte", "holi", "buenos días", "hola, me llamo", "¿hay alguien en línea?", "bienvenido al chat", "hola, ¿en qué puedo ayudarte?", "qué tal el día", "mucho gusto en conocerte", "holas a todos", "hey, ¿qué pasa?", "saludos cordiales"],
       "responses":[
           "Hola, bienvenido a la mejor app de todo CUCEI",
           "Que tal, ¿necesitas ayuda?",
@@ -15,23 +15,21 @@
     },
     {
       "tag":"despedida",
-      "input":["Gracias","Gracias por la informacion","bye","adios","ok adios","Bueno adios","hasta pronto","te vere despues","Me pondré al día más tarde","Está bien, te veré más tarde","Hablaré contigo más tarde","Te enviaré un mensaje de texto más tarde","Adiós hermano, te hablaré más tarde","Adiós hermano"],
+      "input":["Gracias","Gracias por la informacion","bye","adios","ok adios","Bueno adios","hasta pronto","te vere despues","pondré al día más tarde","Está bien, te veré más tarde","Hablaré contigo más tarde","Te enviaré un mensaje de texto más tarde","Adiós hermano", "Nos vemos pronto", "Que tengas un buen día", "Cuidate mucho", "Fue un placer hablar contigo", "Hasta la próxima", "Chao", "Saludos", "Gracias por tu tiempo", "Espero verte pronto", "Que estés bien", "Hasta luego", "Un abrazo", "Adiós amigo", "Nos hablamos luego", "Que te vaya bien", "Hasta mañana", "Buenas noches", "Me despido por ahora", "Gracias por todo", "Adiós y suerte"],
       "responses":[
           "Adios!",
           "Ten un buen dia!",
-          "Hasta la proxima *Suena Dubstep* -le da epilepsia y c muere-",
           "Bye!",
           "Vuelve pronto!",
           "Vuelve si necesitas algo más!",
           "Estare aquí si necesitas algo!",
           "Cuidate",
-          "Nos vemos luego",
           "Okay , cuidate"
         ]
     },
     {
       "tag":"comoestas",
-      "input":["como estas ?","estoy bien, como estas tu ?","estas bien ?","que tal va todo ?","todo va bien ?","como te va ?"],
+      "input":["bien y tu?"," estas ?"," estas tu ?","estas bien ?","que tal va todo ?","todo va bien ?"," te va ?", "¿Cómo te sientes hoy?", "¿Qué tal el día?", "¿Cómo estás de ánimo?", "¿Qué tal te trata la vida?", "¿Todo bien por ahí?", "¿Cómo va eso?", "¿Qué tal estás?", "¿Cómo te va en el trabajo/estudio?", "¿Estás feliz/satisfecho/contento?", "¿Cómo está tu salud/familia/amigos?", "¿Qué tal te ha ido últimamente?", "¿Estás disfrutando el momento?", "¿Te encuentras bien?", "¿Qué tal la semana/el mes/el año?", "¿Estás tranquilo/relajado/animado?", "¿Cómo estás pasando el tiempo/libre/ocio/diversión?", "¿Estás aprendiendo algo nuevo/interesante/divertido?", "¿Te sientes cómodo/a gusto/en confianza?", "¿Estás listo para un nuevo desafío/oportunidad/experiencia?"],
       "responses":[
           "Si, estoy muy bien!",
           "Todo va bien por acá",
@@ -44,41 +42,45 @@
     },
     {
       "tag":"quieneres",
-    "input":["quien eres ?","que eres ?","cual es tu nombre ?","eres un chatbot ?","como te puedo llamar ?","cual es tu nombre ?","eres un bot ?"],
+    "input":[" eres ?","cual es tu nombre ?","un chatbot ?"," te llamas ?","tu nombre ?","un bot ?", " te llamas", "¿Quién eres tú?", "¿Cómo te llamas tú?", "¿Eres un humano?", "¿Qué nombre tienes?", "¿Eres un asistente virtual?", "¿Qué te define?", "¿Cómo te identificas?", "¿Eres una inteligencia artificial?", "¿Qué haces aquí?", "¿Eres Qmono?", "¿De dónde vienes?", "¿Qué te gusta hacer?", "¿Qué tipo de chatbot eres?", "¿Qué función tienes?", "¿Para qué sirves?", "¿Con quién hablas?"],
       "responses":[
           "Soy un agente secreto del fb... digo soy Qmono!",
           "Soy el triste intento de cumplir con el modulo de IA :c",
           "me llaman Qmono, no confundir con el Qmonito!",
           "Soy objeto no fungible ",
           "Soy tu asistente virtual QMono",
-          "QMono",
+          "¡Soy QMono a tus ordenes!",
           "Soy el Qmono, buenas",
           "Soy el Qmono, malas"
         ]
     },
     {
       "tag":"dedondeeres",
-    "input":["¿De donde eres?","de que pais eres ?","donde vives ?","donde estas ?","donde te encuentras ?","en que estado vives ?","donde estas en este momento","donde vives en este momento ?","de donde vienes","eres de ?"],
+    "input":["donde eres ?","que pais eres ?","donde vives ?","donde estas ?","donde te encuentras ?","estado vives ?","donde estas","de donde vienes", "¿Quién eres tú?", "¿Cómo te llamas tú?", "¿Eres un humano?", "¿Qué nombre tienes?", "¿Eres un asistente virtual?", "¿Qué te define?", "¿Cómo te identificas?", "¿Eres una inteligencia artificial?", "¿Qué haces aquí?", "¿Eres Qmono?", "¿De dónde vienes?", "¿Qué te gusta hacer?", "¿Qué tipo de chatbot eres?", "¿Qué función tienes?", "¿Para qué sirves?", "¿Con quién hablas?"],
       "responses":[
           "Vivo en tu cabeza",
           "Estoy en el nuevo mundo pasando la gran linea",
           "En un lugar donde nunca has escuchado",
           "En tu casa, detras de ti",
-          "Cada dia mas esquizofrenico"
+          "En muy muy lejano"
         ]
     },
     {
       "tag":"qmapa",
-      "input":["sabes donde esta el edificio ?","donde esta mi clase ?","mapa cucei","edificio"],
+      "input":["¿Como llego a rectoria?","me puedes decir como llegar a mi clase","edificio ?","mi clase ?","mapa cucei","mis clases", "mapa clases","modulo ?","módulo ?","mapa","plano","comida","tienda","bancas","auditorios","baños","entradas","donde puedo encontrar","lugar","donde puedo comer?","donde puedo descansar?","¿Cómo puedo encontrar la ubicación de mi próxima clase en el mapa?","¿Hay alguna forma de filtrar los lugares en el mapa por tipo, como aulas?","¿Cómo puedo saber el camino más corto para llegar a mi próxima clase?","¿Puedo ver las rutas de transporte público en el mapa?","¿Cómo puedo encontrar la ubicación de una máquina en el campus?","¿Hay un mapa interactivo de la biblioteca de la escuela?",
+      "¿Puedo encontrar la ubicación de los baños en el mapa?", "¿Hay un mapa detallado estacionamiento de la escuela?","¿Dónde puedo encontrar el mapa de la universidad?","¿Cómo puedo saber si hay algún evento en el campus hoy y dónde se llevará a cabo?","¿Puedo encontrar la ubicación de la oficina de servicios estudiantiles en el mapa?","¿Hay un mapa que muestre las áreas de estudio en la escuela?","¿Dónde puedo encontrar el mapa de las instalaciones deportivas en el campus?","¿Puedo ver la ubicación de los edificios de la escuela en el mapa?","¿Cómo puedo encontrar la ubicación del laboratorio de informática en la escuela?","¿Puedo encontrar la ubicación centro en el mapa?",
+      "¿Cómo puedo ver la ubicación de las áreas verdes en el campus?","¿Hay una sección en el mapa que muestra las ubicaciones en el campus?","¿Puedo ver la ubicación de las paradas de autobús en el mapa?","¿Cómo puedo encontrar la ubicación centro de salud de la universidad en el mapa?"],
       "responses":[
-        "Puedes ver el mapa de cucei en Mapa",
-        "Encuentra todo tus clases en Mapa!",
-        "Todos los edificios de Cucei los puedes encontrar en Mapa!"
+        "Puedes ver todo eso en el mapa de cucei en 'Mapa' :D",
+        "Encuentra todas tus clases y modulos en Mapa!",
+        "Todos los edificios de Cucei los puedes encontrar en Mapa al igual que tus clases!",
+        "En la opción de Mapa puedes ver esa información"
       ]
     },
     {
       "tag":"qinfo",
-      "input":["Como puedo buscar","necesito buscar un profesor","conoces al profe","busqueda","buscar profe","buscar materias"],
+      "input":["Quien da buenas clases de programación?","info","si, me puedes ayudar con una recomendación","buscar","buscar un profesor","conoces al profe","busqueda","buscar profe","buscar materias", "informacion materaia", "informacion profe", "clave","maestro","maestra","quien es ?","conoces a","profe","encontrar a un profe","un profe","¿Cómo puedo buscar información de un profesor específico?","¿Puedo ver las clases que imparte un profesor en particular?","¿Cómo encuentro una materia en particular?","¿Quiénes son los profesores que imparten una materia específica?","¿Cómo puedo evaluar a un profesor?","¿Dónde puedo encontrar la encuesta de evaluación de profesores?","¿Qué información puedo encontrar sobre un profesor en la aplicación?","¿Hay alguna manera de saber si un profesor está disponible para una consulta?",
+      "¿Puedo programar una cita con un profesor a través de la aplicación?","¿Cómo puedo contactar a un profesor en particular?","¿Qué materias son requeridas para mi carrera?","¿Puedo encontrar información sobre horarios de clases?","¿Cómo puedo buscar información sobre una materia en particular?","¿Cuál es el historial académico de un profesor en particular?","¿Hay algún requisito para tomar cierta materia?","¿Cómo puedo obtener una copia de mi expediente académico?","¿Cómo puedo encontrar información sobre actividades extracurriculares?","¿Puedo ver el calendario escolar en la aplicación?","¿Cómo puedo encontrar información sobre becas disponibles?","¿Hay alguna forma de conectarse con otros estudiantes a través de la aplicación?","¿Que opnias del profesor ?"],
       "responses":[
         "Si necesitas buscar alguna materia o profesor, ve a información ahí encontrarás lo que buscas.",
         "Qinformación es la solución a tus problemas, podrás consultar datos sobre profesores y las materias que imparten.",
@@ -88,12 +90,63 @@
     },
     {
       "tag":"qhorario",
-      "input":["como agrego materias ?","necesito agendar materias","como puedo hacer mi horario ?","horario","agendar","agendar materias", "que hace horario ?", "donde agrego materias ?"],
+      "input":["agrego materias ?","agendar materias","crear mi horario ?","horario","agendar","agendar materias", "que hace horario ?", "donde agrego materias ?","nrc","nrcs","ver mis materias","agregar","añadir","programar","crear","horario","¿Cómo puedo registrar mis clases en el horario?","¿Cómo puedo ver mi horario semanal de clases?","¿Puedo agregar una clase que no está en la lista de disponibles?","¿Cómo puedo eliminar una clase de mi horario?","¿Puedo cambiar el horario de una clase ya registrada?","¿Cómo puedo saber si hay algún solapamiento de horarios entre mis clases?","¿Qué pasa si una clase se cancela o cambia de horario?","¿Puedo ver los detalles de cada clase en mi horario?","¿Puedo imprimir mi horario?",
+      "¿Qué significa el código NRC de cada clase?","¿Cómo puedo encontrar la sección de horarios en la aplicación?","¿Qué pasa si tengo clases en diferentes campus o edificios?","¿Puedo filtrar las clases por profesor o materia?","¿Cómo puedo saber si una clase está llena o tiene cupo disponible?","¿Puedo ver mi horario en diferentes formatos, como mensual o diario?","¿Puedo compartir mi horario con otros estudiantes o profesores?","¿Puedo recibir notificaciones si hay cambios en mi horario?","¿Cómo puedo agregar un día libre o una hora de descanso en mi horario?","¿Cómo puedo saber si una clase es obligatoria o electiva?","¿Cómo puedo solicitar ayuda si tengo problemas con mi horario?"],
       "responses":[
         "Si necesitas acomodar tu horario, entonces entra en la sección de horario!",
         "Sabias que en horario puedes obtener los nrc de las materias que agregas, solo abre el menú y podras ver tus nrc!",
-        "En horario puedes comodar las materias que quieras agendar o que hayas agendado!",
+        "En horario puedes acomodar tus materias!",
         "La opción de Horario te permitira visalizar y agendar las materias que planeas cursar en el semestre"
+      ]
+    },
+    {
+      "tag":"insultos",
+      "input":["Escribe un mensaje","sabias que vaporion en terminos...","tu cola","Que triste.... Tu destino es vivir con poca inteligencia y sin haber llegado a conocer a nadie igual a ti que pueda hacerte compañía","Pendeje","Métete tu feedback (alien de ben 10) por donde no sale el sol","Me da pena tu existencia","porqueria","culo","pendejo", "tonto", "menso", "idiota", "caca", "basofia", "ctm", "fuck", "puta","puto","pinche", "mames", "shit", "chingas", "abyecta", "hdp", "vomitivo", "mondrigo","canalla", "imbecil", "cabron", "estupido","Pendeje puto","porqueria  gay","culo imbecil","pendejo tonto", "tonto menso", "menso idiota", "idiota caca", "caca basofia", "basofia ctm", "ctm fuck", "fuck puta", "puta puto","puto pinche","pinche puto", "mames shit", "shit chingas", "chingas abyecta", "abyecta hdp", "hdp vomitiva", "vomitivo mondrigo", "mondrigo canalla","canalla imbecil", "imbecil cabron", "cabron estupido", "estupido cabron"],
+      "responses":[
+        "Donde pisa una leona, ninguna gata borrará su huella.",
+        "Aquellos que rompen las reglas son escoria es cierto, pero... aquellos que abandonan a un amigo son peor que escoria",
+        "Gracias por mostrarme todo lo malvada que puede ser la gente",
+        "Antes merecías la pena",
+        "Creo que ignorare eso",
+        "A veces no me importa responder a esas preguntas pero me lo aguanto",
+        "¿Tú eres así?",
+        "Disculpa si no cumplo tus expectativas, mi prioridad es cumplir las mías",
+        "¿Que te pasó amigo?, antes eras chevere...",
+        "Les modeles hacen al hombre.",
+        "Que tengas un buen día"
+      ]
+    },
+    {
+      "tag":"nolose",
+      "input":["¿Que opinas de los furros?","tengo problemas tecnicos ¿donde contacto a soporte?","Necesito materiales de electronica","culos o tetas?","Que es el modelo MDA en el desarrollo de videojuegos?","que necesito para darme de baja","quiero pasar el semestre","repétir","g","No me cambies el tema de conversación","quiero que me lo digas tu","Ok","Igualmente","asasd","eso no tiene sentido we","Quién te programo?","Quiénes son tus padres?","quien te programó?","233rrf13qw","hrtbeg","mhjut","Cuál es el producto de la masa por la aceleración?","Ella me ama?","Yo aún sueño con ella xD","El Mario ya se animo a conquistar a la Regina?","Cuál es tu edad?","Esta conversación se está grabando?","Por qué no?","Responde la pregunta! >:v",""],
+      "responses":[
+        "No tengo la capacidad para responderte, por ahora...",
+        "No logro comprender lo que dices",
+        "Lo siento, mi base de datos de respuestas no ha sido actualizada",
+        "Lo siento no puedo responder eso",
+        "¡Ah ocurrido un error!, no se la respuesta a tu pregunta :C",
+        "No puedo responder",
+        "La respuesta que buscas se encuentra dentro de la proxima actualización",
+        "Esta respuesta solo esta disponible en la proxima version ",
+        "Intenta preguntar algo mas general o cambiar la pregunta, que aun no soy tan listo",
+        "Esta respuesta llegara en una nueva actualización",
+        "Estudiante, la respuesta que buscas se encuentra en otra pregunta",
+        "/REPETIR/",
+        "/RIPITIR/"
+      ]
+    },
+    {
+      "tag":"ayuda",
+      "input":["en que me puedes ayudar","¿En que me puedes ayudar?","tengo una pregunta","pregunta","no necesito eso","estoy bien","si, necesito que me ayudes","necesito ayuda","si","Este es el chat?","No sé usar la app","Oye qmono.... Tengo una pregunta", "ayuda", "puedes ayudarme?", "que es esto?"],
+      "responses":[
+        "¿En qué puedo servirle?",
+        "¿en que puedo ayudarlo?",
+        "¿En qué puedo serle de ayuda?",
+        "¿Qué necesita de mí? Estoy para ayudarle.",
+        "Soy un bot conversacional para resolver tus preguntas sobre la aplicación, haz alguna pregunta de algun tema :D",
+        "Aquí puedes despejar tus dudas sobre esta aplicación!",
+        "Intenta preguntar algo que necesites realizar!",
+        "necesitas ayuda? intenta realizar una pregunta sobre la app!"
       ]
     }
   ]

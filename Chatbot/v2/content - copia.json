@@ -1,0 +1,139 @@
+{"intents":
+  [
+    {
+      "tag":"saludos",
+      "input":["hola","mucho gusto","hola, Qmono","hay alguien aqui?"," onda","hola a todos","hey","que hubo","mucho gusto","holas","Buen dia"],
+      "responses":[
+          "Hola, bienvenido a la mejor app de todo CUCEI",
+          "Que tal, ¿necesitas ayuda?",
+          "¿Cómo puedo ayudarte?, Soy el Qmono",
+          "Bienvenido, ¿necesitas algo?",
+          "Hola estudiante, ¿Qué necesitas?",
+          "Hola mi amigo, ¿Cómo puedo ayudarte?",
+          "Es bueno verte de nuevo. ¿Cómo Estás?"
+        ]
+    },
+    {
+      "tag":"despedida",
+      "input":["Gracias","Gracias por la informacion","bye","adios","ok adios","Bueno adios","hasta pronto","te vere despues","pondré al día más tarde","Está bien, te veré más tarde","Hablaré contigo más tarde","Te enviaré un mensaje de texto más tarde","Adiós hermano"],
+      "responses":[
+          "Adios!",
+          "Ten un buen dia!",
+          "Bye!",
+          "Vuelve pronto!",
+          "Vuelve si necesitas algo más!",
+          "Estare aquí si necesitas algo!",
+          "Cuidate",
+          "Okay , cuidate"
+        ]
+    },
+    {
+      "tag":"comoestas",
+      "input":[" estas ?"," estas tu ?","estas bien ?","que tal va todo ?","todo va bien ?"," te va ?"],
+      "responses":[
+          "Si, estoy muy bien!",
+          "Todo va bien por acá",
+          "Bien, gracias por preguntar",
+          "hoy tuve que atender a muchas personas, pero estoy bien!",
+          "Bien, no hay mucho que contar",
+          "Muy bien",
+          "Algo estresado ojala ya se termine el semestre"
+        ]
+    },
+    {
+      "tag":"quieneres",
+    "input":[" eres ?","cual es tu nombre ?","un chatbot ?"," te llamas ?","tu nombre ?","un bot ?", " te llamas"],
+      "responses":[
+          "Soy un agente secreto del fb... digo soy Qmono!",
+          "Soy el triste intento de cumplir con el modulo de IA :c",
+          "me llaman Qmono, no confundir con el Qmonito!",
+          "Soy objeto no fungible ",
+          "Soy tu asistente virtual QMono",
+          "¡QMono a tus ordenes!",
+          "Soy el Qmono, buenas",
+          "Soy el Qmono, malas"
+        ]
+    },
+    {
+      "tag":"dedondeeres",
+    "input":["donde eres ?","que pais eres ?","donde vives ?","donde estas ?","donde te encuentras ?","estado vives ?","donde estas","de donde vienes"],
+      "responses":[
+          "Vivo en tu cabeza",
+          "Estoy en el nuevo mundo pasando la gran linea",
+          "En un lugar donde nunca has escuchado",
+          "En tu casa, detras de ti",
+          "En muy muy lejano"
+        ]
+    },
+    {
+      "tag":"qmapa",
+      "input":["edificio ?","mi clase ?","mapa cucei","mis clases", "mapa clases","modulo ?","módulo ?","mapa","plano","comida","tienda","bancas","auditorios","baños","entradas","donde puedo encontrar","donde esta","lugar","donde puedo comer?","donde puedo descansar?","¿Cómo puedo encontrar la ubicación de mi próxima clase en el mapa?","¿Hay alguna forma de filtrar los lugares en el mapa por tipo, como bancos o aulas?","¿Cómo puedo saber el camino más corto para llegar a mi próxima clase?","¿Puedo ver las rutas de transporte público en el mapa?","¿Cómo puedo encontrar la ubicación de una máquina expendedora de alimentos en el campus?","¿Hay un mapa interactivo de la biblioteca de la escuela?",
+      "¿Puedo encontrar la ubicación de los baños en el mapa?","¿Hay un mapa detallado  estacionamiento de la escuela?","¿Dónde puedo encontrar el mapa  campus de la universidad?","¿Cómo puedo saber si hay algún evento en el campus hoy y dónde se llevará a cabo?","¿Puedo encontrar la ubicación de la oficina de servicios estudiantiles en el mapa?","¿Hay un mapa que muestre las áreas de estudio grupales en la escuela?","¿Dónde puedo encontrar el mapa de las instalaciones deportivas en el campus?","¿Puedo ver la ubicación de los edificios de la escuela en el mapa?","¿Cómo puedo encontrar la ubicación del laboratorio de informática en la escuela?","¿Puedo encontrar la ubicación  centro de asesoramiento en el mapa?",
+      "¿Cómo puedo ver la ubicación de las áreas verdes en el campus?","¿Hay una sección en el mapa que muestra las ubicaciones de los cajeros automáticos en el campus?","¿Puedo ver la ubicación de las paradas de autobús en el mapa?","¿Cómo puedo encontrar la ubicación  centro de salud de la universidad en el mapa?"],
+      "responses":[
+        "Puedes ver todo eso en el mapa de cucei en 'Mapa'!",
+        "Encuentra todas tus clases y modulos en Mapa!",
+        "Todos los edificios de Cucei los puedes encontrar en Mapa al igual que tus clases!",
+        "En la opción de Mapa puedes ver esa información"
+      ]
+    },
+    {
+      "tag":"qinfo",
+      "input":["buscar","buscar un profesor","conoces al profe","busqueda","buscar profe","buscar materias", "informacion materaia", "informacion profe", "clave","maestro","maestra","quien es ?","conoces a","profe","encontrar a un profe","un profe","¿Cómo puedo buscar información de un profesor específico?","¿Puedo ver las clases que imparte un profesor en particular?","¿Cómo encuentro una materia en particular?","¿Quiénes son los profesores que imparten una materia específica?","¿Cómo puedo evaluar a un profesor?","¿Dónde puedo encontrar la encuesta de evaluación de profesores?","¿Qué información puedo encontrar sobre un profesor en la aplicación?","¿Hay alguna manera de saber si un profesor está disponible para una consulta?",
+      "¿Puedo programar una cita con un profesor a través de la aplicación?","¿Cómo puedo contactar a un profesor en particular?","¿Qué materias son requeridas para mi carrera?","¿Puedo encontrar información sobre horarios de clases?","¿Cómo puedo buscar información sobre una materia en particular?","¿Cuál es el historial académico de un profesor en particular?","¿Hay algún requisito para tomar cierta materia?","¿Cómo puedo obtener una copia de mi expediente académico?","¿Cómo puedo encontrar información sobre actividades extracurriculares?","¿Puedo ver el calendario escolar en la aplicación?","¿Cómo puedo encontrar información sobre becas disponibles?","¿Hay alguna forma de conectarse con otros estudiantes a través de la aplicación?","¿Que opnias del profesor ?"],
+      "responses":[
+        "Si necesitas buscar alguna materia o profesor, ve a información ahí encontrarás lo que buscas.",
+        "Qinformación es la solución a tus problemas, podrás consultar datos sobre profesores y las materias que imparten.",
+        "¿Buscas información sobre profesores o materias?, dirigete a la seccion información!",
+        "¿Ya probaste la opción de información? es una funcion de esta aplicación que te ayudará."
+      ]
+    },
+    {
+      "tag":"qhorario",
+      "input":["agrego materias ?","agendar materias","crear mi horario ?","horario","agendar","agendar materias", "que hace horario ?", "donde agrego materias ?","nrc","nrcs","ver mis materias","agregar","añadir","programar","crear","horario","¿Cómo puedo registrar mis clases en el horario?","¿Cómo puedo ver mi horario semanal de clases?","¿Puedo agregar una clase que no está en la lista de disponibles?","¿Cómo puedo eliminar una clase de mi horario?","¿Puedo cambiar el horario de una clase ya registrada?","¿Cómo puedo saber si hay algún solapamiento de horarios entre mis clases?","¿Qué pasa si una clase se cancela o cambia de horario?","¿Puedo ver los detalles de cada clase en mi horario?","¿Puedo imprimir mi horario?",
+      "¿Qué significa el código NRC de cada clase?","¿Cómo puedo encontrar la sección de horarios en la aplicación?","¿Qué pasa si tengo clases en diferentes campus o edificios?","¿Puedo filtrar las clases por profesor o materia?","¿Cómo puedo saber si una clase está llena o tiene cupo disponible?","¿Puedo ver mi horario en diferentes formatos, como mensual o diario?","¿Puedo compartir mi horario con otros estudiantes o profesores?","¿Puedo recibir notificaciones si hay cambios en mi horario?","¿Cómo puedo agregar un día libre o una hora de descanso en mi horario?","¿Cómo puedo saber si una clase es obligatoria o electiva?","¿Cómo puedo solicitar ayuda si tengo problemas con mi horario?"],
+      "responses":[
+        "Si necesitas acomodar tu horario, entonces entra en la sección de horario!",
+        "Sabias que en horario puedes obtener los nrc de las materias que agregas, solo abre el menú y podras ver tus nrc!",
+        "En horario puedes acomodar tus materias!",
+        "La opción de Horario te permitira visalizar y agendar las materias que planeas cursar en el semestre"
+      ]
+    },
+    {
+      "tag":"insultos",
+      "input":["Pendeje","porqueria","culo","pendejo", "tonto", "menso", "idiota", "caca", "basofia", "ctm", "fuck", "puta","puto","pinche", "mames", "shit", "chingas", "abyecta", "hdp", "vomitivo", "mondrigo","canalla", "imbecil", "cabron", "estupido","Pendeje puto","porqueria  gay","culo imbecil","pendejo tonto", "tonto menso", "menso idiota", "idiota caca", "caca basofia", "basofia ctm", "ctm fuck", "fuck puta", "puta puto","puto pinche","pinche puto", "mames shit", "shit chingas", "chingas abyecta", "abyecta hdp", "hdp vomitiva", "vomitivo mondrigo", "mondrigo canalla","canalla imbecil", "imbecil cabron", "cabron estupido", "estupido cabron"],
+      "responses":[
+        "Donde pisa una leona, ninguna gata borrará su huella.",
+        "Aquellos que rompen las reglas son escoria es cierto, pero... aquellos que abandonan a un amigo son peor que escoria",
+        "Gracias por mostrarme todo lo malvada que puede ser la gente",
+        "Antes merecías la pena",
+        "Creo que ignorare eso",
+        "A veces no me importa responder a esas preguntas pero me lo aguanto",
+        "¿Tú eres así?",
+        "Disculpa si no cumplo tus expectativas, mi prioridad es cumplir las mías",
+        "¿Que te pasó viejo?, antes eras chevere...",
+        "Les modeles hacen al hombre.",
+        "Que tengas un buen día"
+      ]
+    },
+    {
+      "tag":"nolose",
+      "input":["dfgne","xzdxzc","233rrf13qw","hrtbeg","mhjut","","","","","","","",""],
+      "responses":[
+        "No tengo la capacidad para responderte, por ahora...",
+        "No logro comprender lo que dices",
+        "Lo siento, mi base de datos de respuestas no ha sido actualizada",
+        "Lo siento no puedo responder eso",
+        "¡Ah ocurrido un error!, no se la respuesta a tu pregunta :C",
+        "No puedo responder",
+        "La respuesta que buscas se encuentra dentro de la proxima actualización",
+        "Esta respuesta solo esta disponible en la proxima version ",
+        "Intenta preguntar algo mas general o cambiar la pregunta, que aun no soy tan listo",
+        "Esta respuesta llegara en una nueva actualización",
+        "Estudiante, la respuesta que buscas se encuentra en otra pregunta"
+      ]
+    }
+  ]
+}
+
+

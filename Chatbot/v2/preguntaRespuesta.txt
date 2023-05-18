@@ -1,0 +1,16 @@
+
+
+123/despedida/Okay , cuidate
+ya quedo xD/nolose/¡Ah ocurrido un error!, no se la respuesta a tu pregunta :C
+123/despedida/Adios!
+123/despedida/Estare aquí si necesitas algo!
+123/despedida/Ten un buen dia!
+  /despedida/Estare aquí si necesitas algo!
+ /despedida/Cuidate
+ /despedida/Vuelve pronto!
+ /despedida/Ten un buen dia!
+ /despedida/Ten un buen dia!
+b/despedida/Estare aquí si necesitas algo!
+b/despedida/Bye!
+hola/saludos/Es bueno verte de nuevo. ¿Cómo Estás?
+donde puedo ver información de profesores /qinfo/Qinformación es la solución a tus problemas, podrás consultar datos sobre profesores y las materias que imparten.
